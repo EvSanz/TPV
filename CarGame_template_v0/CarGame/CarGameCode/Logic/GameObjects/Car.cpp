@@ -64,12 +64,12 @@ void Car::speedControl(bool accelerate) {
 void Car::verticalmove(bool lTurn) {
     if (lTurn) {
         setPosition(getX(), getY() - VSPEED);
-        if (getY() < 0)
-            setPosition(getX(), 0);
+        if (getY() < getHeight() / 2)
+            setPosition(getX(), getHeight()/2);
     }
     else {
         setPosition(getX(), getY() + VSPEED);
-        if (getY() > game->getWindowHeight())
-            setPosition(getX(), game->getWindowHeight());
+        if (getY() > game->getWindowHeight() - getHeight() / 2)
+            setPosition(getX(), game->getWindowHeight() - getHeight() / 2);
     }
 }
