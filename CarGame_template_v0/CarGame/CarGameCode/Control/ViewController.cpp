@@ -64,28 +64,6 @@ void ViewController::handleEvents() {
                 break;
             }
         }
-        /*if (event.type == SDL_KEYUP) {
-            switch (event.key.keysym.sym) {
-            case SDLK_LEFT:
-                if (alien_xvel < 0)
-                    alien_xvel = 0;
-                break;
-            case SDLK_RIGHT:
-                if (alien_xvel > 0)
-                    alien_xvel = 0;
-                break;
-            case SDLK_UP:
-                if (alien_yvel < 0)
-                    alien_yvel = 0;
-                break;
-            case SDLK_DOWN:
-                if (alien_yvel > 0)
-                    alien_yvel = 0;
-                break;
-            default:
-                break;
-            }*/
-        //}
     }
 }
 
