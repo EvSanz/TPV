@@ -13,6 +13,7 @@ Game::Game(string name, int width, int height, int roadLength) {
     font = new Font("../Images/Monospace.ttf", 12);
 }
 
+//mnhffghjkl
 void Game::startGame() {
     car = new Car(this);
     car->setDimension(CAR_WIDTH, CAR_HEIGHT);
