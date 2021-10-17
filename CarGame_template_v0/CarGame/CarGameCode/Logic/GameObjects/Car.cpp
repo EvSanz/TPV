@@ -49,27 +49,55 @@ SDL_Rect Car::getCollider(){
 }
 
 void Car::speedControl(bool accelerate) {
-    if (accelerate) {  
-        HSPEED = HSPEED * ACCELERATION;
-      
-        if(HSPEED > 10) {
-            HSPEED = 10;
+    if (isAlive(power))
+    {
+        if (accelerate) {
+            HSPEED = HSPEED * ACCELERATION;
+
+            if (HSPEED > 10) {
+                HSPEED = 10;
+            }
         }
-    } 
-    else {
-        HSPEED = HSPEED * DECELERATION;
+        else {
+            HSPEED = HSPEED * DECELERATION;
+        }
     }
+
+    else
+        HSPEED = 0;
 }
 
 void Car::verticalmove(bool lTurn) {
-    if (lTurn) {
-        setPosition(getX(), getY() - VSPEED);
-        if (getY() < getHeight() / 2)
-            setPosition(getX(), getHeight()/2);
+    if (isAlive(power))
+    {
+        if (lTurn) {
+            setPosition(getX(), getY() - VSPEED);
+            if (getY() < getHeight() / 2)
+                setPosition(getX(), getHeight() / 2);
+        }
+        else {
+            setPosition(getX(), getY() + VSPEED);
+            if (getY() > game->getWindowHeight() - getHeight() / 2)
+                setPosition(getX(), game->getWindowHeight() - getHeight() / 2);
+        }
     }
-    else {
-        setPosition(getX(), getY() + VSPEED);
-        if (getY() > game->getWindowHeight() - getHeight() / 2)
-            setPosition(getX(), game->getWindowHeight() - getHeight() / 2);
+
+    else
+        setPosition(getX(), getY());
+}
+
+void Car::powerRemaining(int power)
+{
+    if (isAlive(power))
+    {
+        HSPEED = 0.1; 
+        power--;
     }
+}
+
+void Car::resetValor()
+{
+    HSPEED = 1;
+    power = INITIAL_POWER;
+    setPosition(getWidth(), game->getWindowHeight() / 2.0); 
 }

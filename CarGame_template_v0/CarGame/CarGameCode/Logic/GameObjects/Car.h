@@ -24,7 +24,7 @@ private:
     double HSPEED = 1;
 
     Point2D<double> pos;
-    int w, h;
+    int w, h, power = INITIAL_POWER;
     Game *game;
     Texture *texture;
 
@@ -43,6 +43,7 @@ public:
     double getY() {return pos.getY();};
     int getWidth() {return w;};
     int getHeight() {return h;};
+    int getPower() { return power; };
 
     void setPosition(double x, double y);
 
@@ -50,6 +51,11 @@ public:
 
     void speedControl(bool accelerate);
     void verticalmove(bool lTurn);
+
+    bool isAlive(int power) { return power > -1; }
+    void powerRemaining(int power);
+
+    void resetValor();
 };
 
 
