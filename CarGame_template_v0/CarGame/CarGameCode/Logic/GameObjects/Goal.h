@@ -1,8 +1,9 @@
 #pragma once
 
-#ifndef CARGAME_OBSTACLES_H
-#define CARGAME_OBSTACLES_H
+#pragma once
 
+#ifndef CARGAME_GOAL_H
+#define CARGAME_GOAL_H
 
 class Game;
 
@@ -10,7 +11,7 @@ class Game;
 #include "../../View/Texture.h"
 #include "../../View/Box.h"
 
-class Obstacle {
+class Goal {
 
 private:
 
@@ -20,8 +21,8 @@ private:
     Texture* texture;
 
 public:
-    Obstacle(Game* game);
-    ~Obstacle();
+    Goal(Game* game);
+    ~Goal();
 
     void draw();
     void drawTexture(Texture* texture);
@@ -36,10 +37,9 @@ public:
     void setPosition(double x, double y);
 
     SDL_Rect getCollider();
-
-    void destroy();
 };
 
 
 #endif
+
 

@@ -53,7 +53,7 @@ public:
     void verticalmove(bool lTurn);
 
     bool isAlive(int power) { return power > -1; }
-    void powerRemaining(int power);
+    void powerRemaining();
 
     void resetValor();
 };

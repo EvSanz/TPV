@@ -40,7 +40,6 @@ void Car::drawTexture(Texture *texture) {
     texture->render(textureBox);
 }
 
-
 SDL_Rect Car::getCollider(){
     return { int(getX() - getWidth()),
              int(getY() - getHeight()/2),
@@ -86,7 +85,7 @@ void Car::verticalmove(bool lTurn) {
         setPosition(getX(), getY());
 }
 
-void Car::powerRemaining(int power)
+void Car::powerRemaining()
 {
     if (isAlive(power))
     {

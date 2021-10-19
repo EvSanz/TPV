@@ -1,29 +1,28 @@
-#include "Obstacles.h"
+#include "Goal.h"
 #include "../Game.h"
 
-Obstacle::Obstacle(Game* game) {
+Goal::Goal(Game* game) {
     this->game = game;
     texture = nullptr;
 }
 
-void Obstacle::setDimension(int width, int height) {
+void Goal::setDimension(int width, int height) {
     w = width;
     h = height;
 };
 
-void Obstacle::setPosition(double x, double y) {
+void Goal::setPosition(double x, double y) {
     pos = Point2D<double>(x, y);
 };
 
-Obstacle::~Obstacle() {};
+Goal::~Goal() {};
 
-void Obstacle::draw() {
+void Goal::draw() {
     if (this != nullptr)
-        drawTexture(game->getTexture(rockTexture));
+        drawTexture(game->getTexture(goalTexture));
 }
 
-
-void Obstacle::drawTexture(Texture* texture) {
+void Goal::drawTexture(Texture* texture) {
     int dX = game->getOrigin().getX();
     int dY = game->getOrigin().getY();
 
@@ -32,14 +31,9 @@ void Obstacle::drawTexture(Texture* texture) {
     texture->render(textureBox);
 }
 
-SDL_Rect Obstacle::getCollider() {
+SDL_Rect Goal::getCollider() {
     return { int(getX() - getWidth()),
              int(getY() - getHeight() / 2),
              getWidth(),
              getHeight() };
-}
-
-void Obstacle::destroy()
-{
-    
 }

@@ -23,9 +23,13 @@ void Game::startGame() {
     {
         obs[i] = new Obstacle(this);
         obs[i]->setDimension(OBS_WIDTH, OBS_HEIGHT);
-        obs[i]->setPosition(rand() % getWindowWidth(),
-            rand() % getWindowHeight() + 10);
+        obs[i]->setPosition(rand() % roadLength,
+            rand() % getWindowHeight());
     }
+
+    goal = new Goal(this);
+    goal->setDimension(GOAL_WIDTH, getWindowHeight());
+    goal->setPosition(roadLength, getWindowHeight()/2);
 }
 
 string Game::getGameName() {
@@ -36,25 +40,37 @@ Game::~Game() {
     cout << "[DEBUG] deleting game" << endl;
     delete car;
 
-    for (int i = 0; i < maxObs; i++) {
-
-        if (obs[i] != nullptr) {
-            obs[i]->free();
-        }
-
+    for (int i = 0; i < maxObs; i++) 
         delete obs[i];
-    }
 
+    delete goal;
     delete font;
     delete textureContainer;
 }
 
 void Game::update(){
     car->update();
+
+    for (int i = 0; i < maxObs; i++)
+    {
+        if (obs[i] != nullptr &&
+            obs[i]->getX() < car->getX() - car->getWidth() / 2)
+            obs[i] = nullptr;
+
+        if (obs[i] != nullptr &&
+            SDL_HasIntersection(&car->getCollider(),
+                &obs[i]->getCollider()))
+        {
+            obs[i] = nullptr;
+            car->powerRemaining();
+        }
+    }
 }
+
 
 void Game::draw(){
     car->draw();
+    goal->draw();
 
     for (int i = 0; i < maxObs; i++)
         obs[i]->draw();
@@ -70,8 +86,9 @@ void Game::drawInfo() {
                      int(font->getSize() * 1.8)};
     Box(rect, BLACK).render(renderer);
 
-    string s = "Pos: " + to_string(int(car->getX())) + " "
-               + to_string(int(car->getY()));
+    string s = "Pos: X:" + to_string(int(car->getX())) + " Y:"
+               + to_string(int(car->getY())) + " Power:"
+               + to_string(int(car->getPower()));
     renderText(s, x, y);
 }
 

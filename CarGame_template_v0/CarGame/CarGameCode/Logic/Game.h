@@ -16,6 +16,7 @@
 
 #include "GameObjects/Car.h"
 #include "GameObjects/Obstacles.h"
+#include "GameObjects/Goal.h"
 
 
 using namespace std;
@@ -30,7 +31,7 @@ private:
     int width, height;
     int maxObs = 20;
     Car *car = nullptr;
-
+    Goal* goal = nullptr;
     array<Obstacle*, 20> obs;
 
 
@@ -43,6 +44,7 @@ public:
     const unsigned  int CAR_HEIGHT = 50;
     const unsigned int OBS_WIDTH = 50;
     const unsigned  int OBS_HEIGHT = 50;
+    const unsigned  int GOAL_WIDTH = 50;
 
     Game(string name, int width, int height, int roadLength);
     ~Game();
@@ -71,6 +73,9 @@ public:
     void drawInfo();
 
     void carUse(string instruction);
+
+    //SDL_bool SDL_HasIntersection(const SDL_Rect* A,
+        //const SDL_Rect* B);
 };
 
 
