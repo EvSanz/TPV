@@ -26,13 +26,13 @@ void Game::startGame() {
         obs[i]->setPosition(rand() % roadLength,
             rand() % getWindowHeight());
 
-        /*for (int j = 0; j < maxObs; j++)
+        for (int j = 0; j < maxObs; j++)
         {
             if (obs[j] != nullptr &&
                 obs[j]->getX() == obs[i]->getX()
                 && obs[j]->getY() == obs[i]->getY())
                 obs[i] = nullptr; 
-        }*/
+        }
     }
 
     goal = new Goal(this);
