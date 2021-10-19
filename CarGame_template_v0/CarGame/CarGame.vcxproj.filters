@@ -26,6 +26,9 @@
     <ClCompile Include="CarGameCode\Control\ViewController.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="CarGameCode\Logic\GameObjects\Obstacles.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarGameCode\Logic\Game.h" />
@@ -37,5 +40,6 @@
     <ClInclude Include="CarGameCode\View\TextureContainer.h" />
     <ClInclude Include="CarGameCode\Control\ViewController.h" />
     <ClInclude Include="checkML.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjects\Obstacles.h" />
   </ItemGroup>
 </Project>

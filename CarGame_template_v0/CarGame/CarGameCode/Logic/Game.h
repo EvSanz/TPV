@@ -15,6 +15,7 @@
 #include "../View/Font.h"
 
 #include "GameObjects/Car.h"
+#include "GameObjects/Obstacles.h"
 
 
 using namespace std;
@@ -27,7 +28,12 @@ private:
     bool doExit;
     int roadLength;
     int width, height;
+    int maxObs = 20;
     Car *car = nullptr;
+
+    array<Obstacle*, 20> obs;
+
+
 
     TextureContainer *textureContainer;
     SDL_Renderer* renderer = nullptr;
@@ -35,6 +41,8 @@ private:
 public:
     const unsigned int CAR_WIDTH = 100;
     const unsigned  int CAR_HEIGHT = 50;
+    const unsigned int OBS_WIDTH = 50;
+    const unsigned  int OBS_HEIGHT = 50;
 
     Game(string name, int width, int height, int roadLength);
     ~Game();
