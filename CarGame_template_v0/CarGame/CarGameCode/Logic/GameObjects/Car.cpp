@@ -48,7 +48,7 @@ SDL_Rect Car::getCollider(){
 }
 
 void Car::speedControl(bool accelerate) {
-    if (isAlive(power))
+    if (isAlive())
     {
         if (accelerate) {
             HSPEED = HSPEED * ACCELERATION;
@@ -67,7 +67,7 @@ void Car::speedControl(bool accelerate) {
 }
 
 void Car::verticalmove(bool lTurn) {
-    if (isAlive(power))
+    if (isAlive())
     {
         if (lTurn) {
             setPosition(getX(), getY() - VSPEED);
@@ -87,7 +87,7 @@ void Car::verticalmove(bool lTurn) {
 
 void Car::powerRemaining()
 {
-    if (isAlive(power))
+    if (isAlive())
     {
         HSPEED = 0.1; 
         power--;

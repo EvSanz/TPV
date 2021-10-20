@@ -44,6 +44,7 @@ public:
     int getWidth() {return w;};
     int getHeight() {return h;};
     int getPower() { return power; };
+    int getSpeed() { return HSPEED; };
 
     void setPosition(double x, double y);
 
@@ -52,7 +53,7 @@ public:
     void speedControl(bool accelerate);
     void verticalmove(bool lTurn);
 
-    bool isAlive(int power) { return power > -1; }
+    bool isAlive() { return power > -1; }
     void powerRemaining();
 
     void resetValor();

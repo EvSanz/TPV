@@ -38,8 +38,3 @@ SDL_Rect Obstacle::getCollider() {
              getWidth(),
              getHeight() };
 }
-
-void Obstacle::destroy()
-{
-    
-}

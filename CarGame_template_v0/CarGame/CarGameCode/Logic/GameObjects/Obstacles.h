@@ -36,8 +36,6 @@ public:
     void setPosition(double x, double y);
 
     SDL_Rect getCollider();
-
-    void destroy();
 };
 
 

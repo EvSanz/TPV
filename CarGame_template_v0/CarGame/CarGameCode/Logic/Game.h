@@ -74,8 +74,7 @@ public:
 
     void carUse(string instruction);
 
-    //SDL_bool SDL_HasIntersection(const SDL_Rect* A,
-        //const SDL_Rect* B);
+    void gameOver();
 };
 
 

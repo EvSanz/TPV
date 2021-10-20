@@ -59,17 +59,21 @@ Game::~Game() {
 void Game::update(){
     car->update();
 
-    for (int i = 0; i < maxObs; i++)
+    for (int i = 0; i < obs.size(); i++)
     {
         if (obs[i] != nullptr &&
             obs[i]->getX() < car->getX() - car->getWidth() / 2)
+        {
             obs[i] = nullptr;
+            maxObs--;
+        }
 
         if (obs[i] != nullptr &&
             SDL_HasIntersection(&car->getCollider(),
                 &obs[i]->getCollider()))
         {
             obs[i] = nullptr;
+            maxObs--;
             car->powerRemaining();
         }
     }
@@ -94,10 +98,28 @@ void Game::drawInfo() {
                      int(font->getSize() * 1.8)};
     Box(rect, BLACK).render(renderer);
 
+    double distance = roadLength - car->getX();
+
     string s = "Pos: X:" + to_string(int(car->getX())) + " Y:"
-               + to_string(int(car->getY())) + " Power:"
-               + to_string(int(car->getPower()));
+        + to_string(int(car->getY())) + " Power:"
+        + to_string(int(car->getPower())) + " Speed:"
+        + to_string(int(car->getSpeed()));
+
+    if (maxObs > -1)
+        s += " Obstaculos:" + to_string(int(maxObs));
+
+    if (distance > -1)
+        s += " Distancia res:" + to_string(int(distance));
+
     renderText(s, x, y);
+}
+
+void Game::gameOver()
+{
+    if (car->isAlive())
+    {
+       
+    }
 }
 
 void Game::setUserExit() {
