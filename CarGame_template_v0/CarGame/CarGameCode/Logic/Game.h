@@ -34,7 +34,7 @@ private:
     Goal* goal = nullptr;
     array<Obstacle*, 20> obs;
     int startTime = 0;
-
+    int endTime = 0; 
 
     TextureContainer *textureContainer;
     SDL_Renderer* renderer = nullptr;
@@ -45,6 +45,8 @@ public:
     const unsigned int OBS_WIDTH = 50;
     const unsigned  int OBS_HEIGHT = 50;
     const unsigned  int GOAL_WIDTH = 50;
+    bool finished;
+    //enum { Menu, Playing, GameOver } state;
 
     Game(string name, int width, int height, int roadLength);
     ~Game();
@@ -75,6 +77,9 @@ public:
     void carUse(string instruction);
 
     void gameOver();
+
+    void menu();
+
 };
 
 

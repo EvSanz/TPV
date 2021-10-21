@@ -53,7 +53,7 @@ public:
     void speedControl(bool accelerate);
     void verticalmove(bool lTurn);
 
-    bool isAlive() { return power > -1; }
+    bool isAlive() { return power > 0; }
     void powerRemaining();
 
     void resetValor();

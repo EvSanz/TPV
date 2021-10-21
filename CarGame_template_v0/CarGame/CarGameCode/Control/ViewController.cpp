@@ -17,16 +17,39 @@ ViewController::ViewController(Game *_game) {
 void ViewController::run() {
     uint32_t startTime = 0;
     uint32_t frameTime;
-    game->startGame();
+    state = Menu;
+    startGame = false;
+   
 
     while(!game->doQuit()){
         frameTime = SDL_GetTicks() - startTime;
         handleEvents();
         if (frameTime >= frameDuration()) {
-            clearBackground();
-            game->update();
-            game->draw();
-            SDL_RenderPresent(renderer);
+            switch (state) {
+            case ViewController::Menu:
+                clearBackground();
+                game->menu();
+                SDL_RenderPresent(renderer);
+                break;
+            case ViewController::Playing:
+                clearBackground();
+                game->update();
+                game->draw();
+                SDL_RenderPresent(renderer);
+                if (game->finished) {
+                    state = GameOver;
+                    startGame = false;
+                }
+                break;
+            case ViewController::GameOver:
+                clearBackground();
+                game->gameOver();
+                SDL_RenderPresent(renderer);
+                break;
+            default:
+                break;
+            }
+            
             startTime = SDL_GetTicks();
         }
         else{
@@ -59,6 +82,16 @@ void ViewController::handleEvents() {
                 break;
             case SDLK_DOWN:
                 game->carUse("TurnR");
+                break;
+            case SDLK_ESCAPE:
+                game->setUserExit();
+                break;
+            case SDLK_SPACE:
+                if (!startGame) {
+                    startGame = true;
+                    state = Playing;
+                    game->startGame();
+                }
                 break;
             default:
                 break;

@@ -11,20 +11,22 @@ Game::Game(string name, int width, int height, int roadLength) {
     this->height = height;
     doExit = false;
     font = new Font("../Images/Monospace.ttf", 12);
-    srand(time(NULL));
 }
 
 
 void Game::startGame() {
+    finished = false;
+    srand(time(NULL));
     car = new Car(this);
     car->setDimension(CAR_WIDTH, CAR_HEIGHT);
     car->setPosition(car->getWidth(), height / 2.0); 
+    maxObs = 20;
 
     for (int i = 0; i < maxObs; i++)
     {
         obs[i] = new Obstacle(this);
         obs[i]->setDimension(OBS_WIDTH, OBS_HEIGHT);
-        obs[i]->setPosition(rand() % roadLength,
+        obs[i]->setPosition(200 + rand() % (roadLength - 200) ,
             rand() % getWindowHeight());
 
         for (int j = 0; j < i; j++)
@@ -85,7 +87,15 @@ void Game::update(){
             obs[i] = nullptr;
             maxObs--;
             car->powerRemaining();
+            if (!car->isAlive()) {
+                finished = true;
+            }
         }
+    }
+    if (SDL_HasIntersection(&car->getCollider(),
+        &goal->getCollider())) {
+        endTime = SDL_GetTicks() - startTime;
+        finished = true;
     }
 }
 
@@ -128,9 +138,27 @@ void Game::drawInfo() {
 
 void Game::gameOver()
 {
+    int x = getWindowWidth() / 3;
+    int y = getWindowHeight() / 3;
+    
     if (car->isAlive())
     {
-       
+        string s = "Congratulations!";
+        renderText(s, x, y);
+        string t = "User wins";
+        renderText(t, x, y + font->getSize());
+        string u = "Time: " + to_string(endTime) + " ms";
+        renderText(u, x, y + font->getSize() * 2);
+        string v = "Press space to play again";
+        renderText(v, x, y + font->getSize() * 3);
+    }
+    else {
+        string s = "GAME OVER";
+        renderText(s, x, y);
+        string t = "User loses";
+        renderText(t, x, y + font->getSize());
+        string u = "Press space to retry";
+        renderText(u, x, y + font->getSize() * 2);
     }
 }
 
@@ -194,4 +222,17 @@ void Game::carUse(string instruction) {
     else if (instruction == "TurnR") {
         car->verticalmove(false);
     }
+}
+
+void Game::menu() {
+    int x = getWindowWidth() / 3;
+    int y = getWindowHeight() / 3;
+
+    string s = "Welcome to Super Cars";
+    renderText(s, x, y);
+    string t = "Level: 0";
+    renderText(t, x, y + font->getSize());
+    string u = "Press space to start";
+    renderText(u, x, y + font->getSize() * 2);
+
 }

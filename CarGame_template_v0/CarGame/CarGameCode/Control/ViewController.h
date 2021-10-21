@@ -18,9 +18,12 @@ private:
     Game *game;
     SDL_Window* window = nullptr;
     SDL_Renderer* renderer = nullptr;
+    bool startGame = false;
 
     void initSDL();
 public:
+    enum { Menu, Playing, GameOver } state;
+
     ViewController(Game *game);
 
     ~ViewController();
