@@ -33,7 +33,7 @@ private:
     Car *car = nullptr;
     Goal* goal = nullptr;
     array<Obstacle*, 20> obs;
-
+    int startTime = 0;
 
 
     TextureContainer *textureContainer;

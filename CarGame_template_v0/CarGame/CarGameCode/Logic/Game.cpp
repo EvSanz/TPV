@@ -47,6 +47,7 @@ void Game::startGame() {
     goal = new Goal(this);
     goal->setDimension(GOAL_WIDTH, getWindowHeight());
     goal->setPosition(roadLength, getWindowHeight()/2);
+    startTime = SDL_GetTicks();
 }
 
 string Game::getGameName() {
@@ -119,6 +120,8 @@ void Game::drawInfo() {
 
     if (distance > -1)
         s += " Distancia res:" + to_string(int(distance));
+
+    s += " Tiempo:" + to_string(int(SDL_GetTicks() - startTime));
 
     renderText(s, x, y);
 }
