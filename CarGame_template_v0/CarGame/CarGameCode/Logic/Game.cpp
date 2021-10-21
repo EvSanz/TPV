@@ -48,8 +48,8 @@ Game::~Game() {
     cout << "[DEBUG] deleting game" << endl;
     delete car;
 
-    for (int i = 0; i < maxObs; i++) 
-        delete obs[i];
+    for (auto p : obs)
+        delete p;
 
     delete goal;
     delete font;
