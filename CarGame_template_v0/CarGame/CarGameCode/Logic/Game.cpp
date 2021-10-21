@@ -11,6 +11,7 @@ Game::Game(string name, int width, int height, int roadLength) {
     this->height = height;
     doExit = false;
     font = new Font("../Images/Monospace.ttf", 12);
+    srand(time(NULL));
 }
 
 
@@ -26,14 +27,22 @@ void Game::startGame() {
         obs[i]->setPosition(rand() % roadLength,
             rand() % getWindowHeight());
 
-        /*for (int j = 0; j < maxObs; j++)
+        for (int j = 0; j < i; j++)
         {
-            if (obs[j] != nullptr &&
-                obs[j]->getX() == obs[i]->getX()
-                && obs[j]->getY() == obs[i]->getY())
-                obs[i] = nullptr; 
-        }*/
+            if (obs[j] != nullptr && obs[i] != nullptr &&
+                SDL_HasIntersection(&obs[i]->getCollider(), &obs[j]->getCollider())) {
+                obs[i] = nullptr;
+                
+            }
+        }
     }
+
+    int removed = 0;
+    for (int f = 0; f < maxObs; f++) {
+        if (obs[f] == nullptr)
+            removed++;
+    }
+    maxObs -= removed;
 
     goal = new Goal(this);
     goal->setDimension(GOAL_WIDTH, getWindowHeight());
@@ -84,7 +93,7 @@ void Game::draw(){
     car->draw();
     goal->draw();
 
-    for (int i = 0; i < maxObs; i++)
+    for (int i = 0; i < obs.size(); i++)
         obs[i]->draw();
         
     drawInfo();
