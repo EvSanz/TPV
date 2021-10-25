@@ -27,12 +27,13 @@ void Game::startGame() {
         obs[i] = new Obstacle(this);
         obs[i]->setDimension(OBS_WIDTH, OBS_HEIGHT);
         obs[i]->setPosition(200 + rand() % (roadLength - 200) ,
-            rand() % getWindowHeight());
+            OBS_HEIGHT/2 + rand() % (getWindowHeight() - OBS_HEIGHT));
 
         for (int j = 0; j < i; j++)
         {
             if (obs[j] != nullptr && obs[i] != nullptr &&
                 SDL_HasIntersection(&obs[i]->getCollider(), &obs[j]->getCollider())) {
+                delete obs[i];
                 obs[i] = nullptr;
                 
             }
@@ -60,8 +61,10 @@ Game::~Game() {
     cout << "[DEBUG] deleting game" << endl;
     delete car;
 
-    for (auto p : obs)
+    for (auto p : obs) {
         delete p;
+        p = nullptr;
+    }
 
     delete goal;
     delete font;
@@ -76,6 +79,7 @@ void Game::update(){
         if (obs[i] != nullptr &&
             obs[i]->getX() < car->getX() - car->getWidth() / 2)
         {
+            delete obs[i];
             obs[i] = nullptr;
             maxObs--;
         }
@@ -84,6 +88,7 @@ void Game::update(){
             SDL_HasIntersection(&car->getCollider(),
                 &obs[i]->getCollider()))
         {
+            delete obs[i];
             obs[i] = nullptr;
             maxObs--;
             car->powerRemaining();
@@ -95,6 +100,12 @@ void Game::update(){
     if (SDL_HasIntersection(&car->getCollider(),
         &goal->getCollider())) {
         endTime = SDL_GetTicks() - startTime;
+        /*for (auto p : obs) {
+            if (p != nullptr) {
+                delete p;
+                p = nullptr;
+            }
+        }*/
         finished = true;
     }
 }

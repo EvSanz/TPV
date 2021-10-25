@@ -72,16 +72,20 @@ void ViewController::handleEvents() {
             //SDL_Keycode key = event.key.keysym.sym;
             switch (event.key.keysym.sym) {
             case SDLK_LEFT:
-                game->carUse("decl");
+                if(startGame)
+                    game->carUse("decl");
                 break;
             case SDLK_RIGHT:
-                game->carUse("accl");
+                if(startGame)
+                    game->carUse("accl");
                 break;
             case SDLK_UP:
-                game->carUse("TurnL");
+                if(startGame)
+                    game->carUse("TurnL");
                 break;
             case SDLK_DOWN:
-                game->carUse("TurnR");
+                if(startGame)
+                    game->carUse("TurnR");
                 break;
             case SDLK_ESCAPE:
                 game->setUserExit();
