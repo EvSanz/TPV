@@ -32,6 +32,12 @@
     <ClCompile Include="CarGameCode\Logic\GameObjects\Goal.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="CarGameCode\Control\Command\QuitCommand.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="CarGameCode\Logic\GameObjects\BadObject.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarGameCode\Logic\Game.h" />
@@ -45,5 +51,13 @@
     <ClInclude Include="checkML.h" />
     <ClInclude Include="CarGameCode\Logic\GameObjects\Obstacles.h" />
     <ClInclude Include="CarGameCode\Logic\GameObjects\Goal.h" />
+    <ClInclude Include="CarGameCode\Control\Command\QuitCommand.h" />
+    <ClInclude Include="CarGameCode\Control\Command\Command.h" />
+    <ClInclude Include="CarGameCode\Control\CommandFactory.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjects\BadObject.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjects\Collider.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjects\GameObject.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjectContainer.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjectGenerator.h" />
   </ItemGroup>
 </Project>

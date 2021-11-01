@@ -80,6 +80,10 @@ public:
 
     void menu();
 
+    void appendHelpInfo(string info_string);
+
+    bool isRebased();
+
 };
 
 
