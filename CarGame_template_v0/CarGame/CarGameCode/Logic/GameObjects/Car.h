@@ -11,8 +11,9 @@ class Game;
 #include "../../Utils/Vector2D.h"
 #include "../../View/Texture.h"
 #include "../../View/Box.h"
+#include "GameObject.h"
 
-class Car {
+class Car : public GameObject {
 
 private:
 
@@ -23,32 +24,27 @@ private:
     const int INITIAL_POWER = 3; //esto son las vidas
     double HSPEED = 1;
 
-    Point2D<double> pos;
-    int w, h, power = INITIAL_POWER;
-    Game *game;
-    Texture *texture;
+    //Point2D<double> pos;
+    //int w, h; 
+    int power = INITIAL_POWER;
+    //Game *game;
+    //Texture *texture;
 
 
 public:
-    Car(Game *game);
+    Car(Game* game) : GameObject(game) {
+        //texture = nullptr;
+    };
     ~Car();
 
     void draw();
     void update();
     void drawTexture(Texture* texture);
 
-    void setDimension(int width, int height);
-
-    double getX() {return pos.getX();};
-    double getY() {return pos.getY();};
-    int getWidth() {return w;};
-    int getHeight() {return h;};
+    
     int getPower() { return power; };
     int getSpeed() { return HSPEED; };
 
-    void setPosition(double x, double y);
-
-    SDL_Rect getCollider();
 
     void speedControl(bool accelerate);
     void verticalmove(bool lTurn);

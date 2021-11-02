@@ -5,7 +5,7 @@
 #include "Collider.h"
 #include "../../Utils/Vector2D.h"
 #include "../../View/TextureContainer.h"
-#include "../Game.h"
+
 
 class Game;
 
@@ -17,29 +17,39 @@ class GameObject : public Collider {
 protected:
     Texture *texture;
     Game* game;
-    void drawTexture(Texture* texture);
+    void drawTexture(Texture* texture) {};
 public:
     GameObject(Game *game): game(game){};
     virtual ~GameObject(){};
 
     virtual void draw()=0;
-    virtual void drawDebug();
+    //virtual void drawDebug();
     virtual void update()=0;
 
     virtual bool toDelete(){return false;}
     virtual void onEnter(){};
     virtual void onDelete(){};
 
-    void setPosition(double x, double y);
-    void setDimension(double width, double height);
+    void setPosition(double x, double y) {
+        pos = Point2D<double>(x, y);
+    };
+    void setDimension(double width, double height) {
+        w = width;
+        h = height;
+    };
 
     int getWidth() {return w;};
     int getHeight() {return h;};
 
     int getX() {return pos.getX();};
     int getY() {return pos.getY();};
-    virtual SDL_Rect getCollider();
-    virtual SDL_Rect getCenter();
+    virtual SDL_Rect getCollider() {
+        return { int(getX() - getWidth()),
+             int(getY() - getHeight() / 2),
+             getWidth(),
+             getHeight() };
+    };
+    //virtual SDL_Rect getCenter();
 
     bool collide(SDL_Rect other);
 };
