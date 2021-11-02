@@ -59,16 +59,24 @@ string Game::getGameName() {
 
 Game::~Game() {
     cout << "[DEBUG] deleting game" << endl;
-    delete car;
-
+    if(car != nullptr)
+        delete car;
+    
     for (auto p : obs) {
-        delete p;
-        p = nullptr;
+        if (p != nullptr) {
+            delete p;
+            p = nullptr;
+        }
     }
 
-    delete goal;
-    delete font;
-    delete textureContainer;
+    if(goal != nullptr)
+        delete goal;
+    
+    if(font != nullptr)
+        delete font;
+
+    if(textureContainer != nullptr)
+        delete textureContainer;
 }
 
 void Game::update(){
