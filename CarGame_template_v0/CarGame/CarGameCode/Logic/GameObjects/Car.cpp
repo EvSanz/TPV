@@ -5,18 +5,9 @@
 #include "Car.h"
 #include "../Game.h"
 
-//Car::Car(Game *game) : game(game){
-    //this->game = game;
-  //  texture = nullptr;
-
-//}
-
-
 void Car::update() {
     setPosition(getX() + HSPEED, getY());
 }
-
-Car::~Car(){};
 
 void Car::draw() {
     drawTexture(game->getTexture(carTexture));

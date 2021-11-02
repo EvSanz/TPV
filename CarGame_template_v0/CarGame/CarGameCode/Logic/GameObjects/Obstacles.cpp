@@ -1,27 +1,10 @@
 #include "Obstacles.h"
 #include "../Game.h"
 
-Obstacle::Obstacle(Game* game) {
-    this->game = game;
-    texture = nullptr;
-}
-
-void Obstacle::setDimension(int width, int height) {
-    w = width;
-    h = height;
-};
-
-void Obstacle::setPosition(double x, double y) {
-    pos = Point2D<double>(x, y);
-};
-
-Obstacle::~Obstacle() {};
-
 void Obstacle::draw() {
     if (this != nullptr)
         drawTexture(game->getTexture(rockTexture));
 }
-
 
 void Obstacle::drawTexture(Texture* texture) {
     int dX = game->getOrigin().getX();
@@ -32,9 +15,3 @@ void Obstacle::drawTexture(Texture* texture) {
     texture->render(textureBox);
 }
 
-SDL_Rect Obstacle::getCollider() {
-    return { int(getX() - getWidth()),
-             int(getY() - getHeight() / 2),
-             getWidth(),
-             getHeight() };
-}

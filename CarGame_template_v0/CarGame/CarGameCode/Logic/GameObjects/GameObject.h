@@ -6,7 +6,6 @@
 #include "../../Utils/Vector2D.h"
 #include "../../View/TextureContainer.h"
 
-
 class Game;
 
 class GameObject : public Collider {
@@ -49,8 +48,8 @@ public:
              getWidth(),
              getHeight() };
     };
-    //virtual SDL_Rect getCenter();
 
+    //virtual SDL_Rect getCenter();
     bool collide(SDL_Rect other);
 };
 #endif //CARGAME_GAMEOBJECT_H

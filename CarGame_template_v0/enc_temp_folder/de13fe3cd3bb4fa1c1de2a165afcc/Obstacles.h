@@ -13,6 +13,13 @@ class Game;
 
 class Obstacle: public GameObject {
 
+private:
+
+    //Point2D<double> pos;
+    //int w, h;
+    //Game* game;
+    //Texture* texture;
+
 public:
     Obstacle(Game* game) : GameObject(game) {};
     ~Obstacle() {};

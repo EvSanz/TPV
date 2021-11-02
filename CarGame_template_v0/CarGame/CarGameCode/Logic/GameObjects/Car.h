@@ -5,7 +5,6 @@
 #ifndef CARGAME_CAR_H
 #define CARGAME_CAR_H
 
-
 class Game;
 
 #include "../../Utils/Vector2D.h"
@@ -21,30 +20,21 @@ private:
     const double DECELERATION = 0.9;
     const int VSPEED = 5;
     const int MAX_SPEED = 10;
-    const int INITIAL_POWER = 3; //esto son las vidas
+    const int INITIAL_POWER = 3; 
+
     double HSPEED = 1;
-
-    //Point2D<double> pos;
-    //int w, h; 
     int power = INITIAL_POWER;
-    //Game *game;
-    //Texture *texture;
-
 
 public:
-    Car(Game* game) : GameObject(game) {
-        //texture = nullptr;
-    };
-    ~Car();
+    Car(Game* game) : GameObject(game) { /*texture = nullptr;*/ };
+    ~Car() {};
 
     void draw();
     void update();
     void drawTexture(Texture* texture);
-
     
     int getPower() { return power; };
     int getSpeed() { return HSPEED; };
-
 
     void speedControl(bool accelerate);
     void verticalmove(bool lTurn);
