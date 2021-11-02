@@ -11,6 +11,9 @@ Game::Game(string name, int width, int height, int roadLength) {
     this->height = height;
     doExit = false;
     font = new Font("../Images/Monospace.ttf", 12);
+    for (int i = 0; i < maxObs; ++i) {
+        obs[i] = nullptr;
+    }
 }
 
 
