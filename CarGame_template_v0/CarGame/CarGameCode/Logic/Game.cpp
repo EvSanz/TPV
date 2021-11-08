@@ -130,9 +130,11 @@ void Game::draw(){
     if (goal != nullptr)
         goal->draw();
 
-    for (int i = 0; i < obs.size(); i++)
-        if (obs[i] != nullptr)
-            obs[i]->draw();
+    for (auto p : obs) {
+        if (p != nullptr) {
+            p->draw();
+        }
+    }
         
     drawInfo();
 }
