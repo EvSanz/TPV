@@ -7,7 +7,7 @@ using namespace std;
 class GameObject;
 class Collider;
 
-class GameObjectContainer {
+class GameObjectContainer { //Este coge todos los objetos que no sean coche
     vector<GameObject*> gameObjects;
 public:
 
