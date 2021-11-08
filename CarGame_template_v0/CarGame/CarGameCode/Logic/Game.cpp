@@ -126,8 +126,11 @@ void Game::draw(){
     car->draw();
     goal->draw();
 
-    for (int i = 0; i < obs.size(); i++)
-        obs[i]->draw();
+    for (auto p : obs) {
+        if (p != nullptr) {
+            p->draw();
+        }
+    }
         
     drawInfo();
 }
