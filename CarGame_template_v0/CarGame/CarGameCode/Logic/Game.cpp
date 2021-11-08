@@ -123,11 +123,16 @@ void Game::update(){
 
 
 void Game::draw(){
-    car->draw();
-    goal->draw();
+
+    if (car != nullptr)
+        car->draw();
+
+    if (goal != nullptr)
+        goal->draw();
 
     for (int i = 0; i < obs.size(); i++)
-        obs[i]->draw();
+        if (obs[i] != nullptr)
+            obs[i]->draw();
         
     drawInfo();
 }

@@ -1,25 +1,8 @@
 #include "Goal.h"
 #include "../Game.h"
 
-Goal::Goal(Game* game) {
-    this->game = game;
-    texture = nullptr;
-}
-
-void Goal::setDimension(int width, int height) {
-    w = width;
-    h = height;
-};
-
-void Goal::setPosition(double x, double y) {
-    pos = Point2D<double>(x, y);
-};
-
-Goal::~Goal() {};
-
 void Goal::draw() {
-    if (this != nullptr)
-        drawTexture(game->getTexture(goalTexture));
+    drawTexture(game->getTexture(goalTexture));
 }
 
 void Goal::drawTexture(Texture* texture) {
@@ -31,9 +14,3 @@ void Goal::drawTexture(Texture* texture) {
     texture->render(textureBox);
 }
 
-SDL_Rect Goal::getCollider() {
-    return { int(getX() - getWidth()),
-             int(getY() - getHeight() / 2),
-             getWidth(),
-             getHeight() };
-}
