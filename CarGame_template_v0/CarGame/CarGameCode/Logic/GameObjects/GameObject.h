@@ -42,6 +42,7 @@ public:
 
     int getX() {return pos.getX();};
     int getY() {return pos.getY();};
+
     virtual SDL_Rect getCollider() {
         return { int(getX() - getWidth()),
              int(getY() - getHeight() / 2),

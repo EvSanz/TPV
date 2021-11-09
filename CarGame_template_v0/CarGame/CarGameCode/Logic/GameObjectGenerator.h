@@ -5,11 +5,17 @@
 #include "GameObjects/GameObject.h"
 
 class GameObjectGenerator {
-    Point2D<int> static generateRandomPosition(Game *game, GameObject *o);
-    void static addInRandomPosition(Game *game, GameObject *o);
+
+    Point2D<int> static generateRandomPosition(Game* game, GameObject* o);
+
+    void static addInRandomPosition(Game* game, GameObject* o);
+
+protected:
+    Game* game = nullptr;
 
 public:
     static void generate(Game *game, int N_ROCKS = 0){
+
         for(int i = 0; i < N_ROCKS; i++)
             addInRandomPosition(game, new Obstacle(game));
     }   

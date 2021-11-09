@@ -18,38 +18,48 @@
 #include "GameObjects/Obstacles.h"
 #include "GameObjects/Goal.h"
 
+#include "GameObjectContainer.h"
+#include "GameObjectGenerator.h"
+
 
 using namespace std;
 
 class Game{
 
-
 private:
+
     string name;
     bool doExit;
-    int roadLength;
+
     int width, height;
     int maxObs = 20;
     Car *car = nullptr;
+    int roadLength;
     Goal* goal = nullptr;
-    array<Obstacle*, 20> obs;
+    //array<Obstacle*, 20> obs;
     int startTime = 0;
     int endTime = 0; 
 
     TextureContainer *textureContainer;
     SDL_Renderer* renderer = nullptr;
     Font *font;
+
 public:
+
     const unsigned int CAR_WIDTH = 100;
     const unsigned  int CAR_HEIGHT = 50;
-    const unsigned int OBS_WIDTH = 50;
-    const unsigned  int OBS_HEIGHT = 50;
     const unsigned  int GOAL_WIDTH = 50;
+
+
     bool finished;
     //enum { Menu, Playing, GameOver } state;
 
     Game(string name, int width, int height, int roadLength);
     ~Game();
+
+
+    GameObjectGenerator *gen;
+    GameObjectContainer *con;
 
     void startGame();
     void update();
@@ -61,6 +71,7 @@ public:
 
     int getWindowWidth();
     int getWindowHeight();
+    int getRoadLeght() { return roadLength; }
 
     Point2D<int> getOrigin();
 

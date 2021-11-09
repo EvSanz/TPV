@@ -11,43 +11,36 @@ Game::Game(string name, int width, int height, int roadLength) {
     this->height = height;
     doExit = false;
     font = new Font("../Images/Monospace.ttf", 12);
-    for (int i = 0; i < maxObs; ++i) {
-        obs[i] = nullptr;
-    }
 }
 
 
 void Game::startGame() {
+
     finished = false;
     srand(time(NULL));
+
     car = new Car(this);
     car->setDimension(CAR_WIDTH, CAR_HEIGHT);
     car->setPosition(car->getWidth(), height / 2.0); 
+
     maxObs = 20;
+
+    gen->generate(this, maxObs);
 
     for (int i = 0; i < maxObs; i++)
     {
-        obs[i] = new Obstacle(this);
-        obs[i]->setDimension(OBS_WIDTH, OBS_HEIGHT);
-        obs[i]->setPosition(200 + rand() % (roadLength - 200) ,
-            OBS_HEIGHT/2 + rand() % (getWindowHeight() - OBS_HEIGHT));
-
-        for (int j = 0; j < i; j++)
-        {
-            if (obs[j] != nullptr && obs[i] != nullptr &&
-                SDL_HasIntersection(&obs[i]->getCollider(), &obs[j]->getCollider())) {
-                delete obs[i];
-                obs[i] = nullptr;
-                
-            }
-        }
+        if (con->hasCollision(con->getObject(i)))
+            con->removeDead();
     }
 
     int removed = 0;
-    for (int f = 0; f < maxObs; f++) {
-        if (obs[f] == nullptr)
+
+    for (int i = 0; i < maxObs; i++) 
+    {
+        if (con -> getObject(i) == nullptr)
             removed++;
     }
+
     maxObs -= removed;
 
     goal = new Goal(this);
@@ -65,12 +58,7 @@ Game::~Game() {
     if(car != nullptr)
         delete car;
     
-    for (auto p : obs) {
-        if (p != nullptr) {
-            delete p;
-            p = nullptr;
-        }
-    }
+    con->~GameObjectContainer(); 
 
     if(goal != nullptr)
         delete goal;
@@ -83,40 +71,33 @@ Game::~Game() {
 }
 
 void Game::update(){
+
     car->update();
 
-    for (int i = 0; i < obs.size(); i++)
+    if (con->hasCollision(car))
     {
-        if (obs[i] != nullptr &&
-            obs[i]->getX() < car->getX() - car->getWidth() / 2)
-        {
-            delete obs[i];
-            obs[i] = nullptr;
-            maxObs--;
-        }
+        maxObs--;
 
-        if (obs[i] != nullptr &&
-            SDL_HasIntersection(&car->getCollider(),
-                &obs[i]->getCollider()))
-        {
-            delete obs[i];
-            obs[i] = nullptr;
-            maxObs--;
-            car->powerRemaining();
-            if (!car->isAlive()) {
-                finished = true;
-            }
+        car->powerRemaining();
+
+        if (!car->isAlive()) {
+            finished = true;
         }
     }
+
+    for (int i = 0; i < con -> getVecSize(); i++)
+    {
+        if (con -> getObject(i) != nullptr &&
+            con-> getObject(i)-> getX() < car->getX() - car->getWidth() / 2)
+        {
+            con->removeObject(con->getObject(i));
+            maxObs--;
+        }
+    }
+
     if (SDL_HasIntersection(&car->getCollider(),
         &goal->getCollider())) {
         endTime = SDL_GetTicks() - startTime;
-        /*for (auto p : obs) {
-            if (p != nullptr) {
-                delete p;
-                p = nullptr;
-            }
-        }*/
         finished = true;
     }
 }
@@ -124,18 +105,9 @@ void Game::update(){
 
 void Game::draw(){
 
-    if (car != nullptr)
-        car->draw();
-
-    if (goal != nullptr)
-        goal->draw();
-
-    for (auto p : obs) {
-        if (p != nullptr) {
-            p->draw();
-        }
-    }
-        
+    car->draw(); 
+    con->draw();
+    goal->draw();
     drawInfo();
 }
 

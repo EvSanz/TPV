@@ -14,6 +14,7 @@
     <ClCompile Include="CarGameCode\Control\Command\QuitCommand.cpp" />
     <ClCompile Include="CarGameCode\Control\ViewController.cpp" />
     <ClCompile Include="CarGameCode\Logic\Game.cpp" />
+    <ClCompile Include="CarGameCode\Logic\GameObjectGenerator.cpp" />
     <ClCompile Include="CarGameCode\Logic\GameObjects\BadObject.cpp" />
     <ClCompile Include="CarGameCode\Logic\GameObjects\Car.cpp" />
     <ClCompile Include="CarGameCode\Logic\GameObjects\Goal.cpp" />
