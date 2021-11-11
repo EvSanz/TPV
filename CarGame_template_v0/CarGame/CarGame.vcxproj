@@ -21,6 +21,7 @@
     <ClCompile Include="CarGameCode\Logic\GameObjects\Obstacles.cpp" />
     <ClCompile Include="CarGameCode\Main.cpp" />
     <ClCompile Include="CarGameCode\View\Texture.cpp" />
+    <ClCompile Include="CarGameCode\Logic\GameObjects\PowerUp.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarGameCode\Control\CommandFactory.h" />
@@ -42,6 +43,7 @@
     <ClInclude Include="CarGameCode\View\Texture.h" />
     <ClInclude Include="CarGameCode\View\TextureContainer.h" />
     <ClInclude Include="checkML.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjects\PowerUp.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}</ProjectGuid>

@@ -77,7 +77,7 @@ public:
             if (i != nullptr &&
                 SDL_HasIntersection(&i->getCollider(), &g->getCollider()))
             {
-                i = nullptr;
+                //i = nullptr;
                 collisions.push_back(i);
             }
         }

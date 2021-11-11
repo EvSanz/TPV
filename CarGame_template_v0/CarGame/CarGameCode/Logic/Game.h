@@ -58,7 +58,7 @@ public:
     ~Game();
 
 
-    GameObjectGenerator *gen;
+    //GameObjectGenerator *gen;
     GameObjectContainer *con;
 
     void startGame();

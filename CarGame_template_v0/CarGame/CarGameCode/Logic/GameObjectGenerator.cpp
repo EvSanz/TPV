@@ -7,11 +7,15 @@ Point2D<int> GameObjectGenerator::generateRandomPosition(Game* game, GameObject*
         (game->getWindowHeight() - o->getHeight());
 
     o->setPosition(x, y);
+    
+    return Point2D<int>(x,y);
 }
 
 void GameObjectGenerator::addInRandomPosition(Game* game, GameObject* o)
 {
     o->setDimension(50, 50);
     generateRandomPosition(game, o);
-    game->con->add(o);
+    if(!game->con->hasCollision(o))
+        game->con->add(o);
+
 }

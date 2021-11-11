@@ -3,6 +3,7 @@
 //
 
 #include "Game.h"
+#include "GameObjectGenerator.h"
 
 Game::Game(string name, int width, int height, int roadLength) {
     this->name = name;
@@ -24,14 +25,14 @@ void Game::startGame() {
     car->setPosition(car->getWidth(), height / 2.0); 
 
     maxObs = 20;
+    con = new GameObjectContainer();
+    GameObjectGenerator::generate(this, maxObs);
 
-    gen->generate(this, maxObs);
-
-    for (int i = 0; i < maxObs; i++)
+    /*for (int i = 0; i < maxObs; i++)
     {
         if (con->hasCollision(con->getObject(i)))
             con->removeDead();
-    }
+    }*/
 
     int removed = 0;
 
