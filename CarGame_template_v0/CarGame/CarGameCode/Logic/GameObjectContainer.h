@@ -2,6 +2,7 @@
 #define CARGAME_GAMEOBJECTCONTAINER_H
 
 #include <vector>
+#include "GameObjects/BadObject.h"
 
 using namespace std;
 
@@ -11,6 +12,7 @@ class Collider;
 class GameObjectContainer { 
     //Este coge todos los objetos que no sean coche
     vector<GameObject*> gameObjects;
+    BadObject* badObject; 
 
 public:
 
@@ -20,8 +22,13 @@ public:
 
     ~GameObjectContainer() 
     { 
-        for (int i = 0; i<gameObjects.size(); i++)
+        for (int i = 0; i < gameObjects.size(); i++)
+        {
+            if (!gameObjects[i]->isGood());
+                //badObject->onDelete();
             removeObject(getObject(i), i);
+        }
+
     }
 
     int getVecSize() { return gameObjects.size(); }
@@ -46,7 +53,13 @@ public:
 
     //void drawDebug();
 
-    void add(GameObject* gameObject) { gameObjects.push_back(gameObject); }
+    void add(GameObject* gameObject) 
+    { 
+        gameObjects.push_back(gameObject); 
+
+        if (!gameObject->isGood());
+            //badObject->onEnter(); 
+    }
 
     void removeDead()
     {
@@ -62,6 +75,8 @@ public:
         if (g != nullptr)
         {
             gameObjects.erase(gameObjects.begin() + i);
+            if (!g->isGood());
+                //badObject->onDelete();
             delete g;
             g = nullptr;
         }

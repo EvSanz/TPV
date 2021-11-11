@@ -13,7 +13,10 @@ class Game;
 class PowerUp : public GameObject {
 
 public:
-    PowerUp(Game* game) : GameObject(game) {};
+    PowerUp(Game* game) : GameObject(game) 
+    {
+        GameObject::setBool(true);
+    };
     ~PowerUp() {};
 
     void draw();

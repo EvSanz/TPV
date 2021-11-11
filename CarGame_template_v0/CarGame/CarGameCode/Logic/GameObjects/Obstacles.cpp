@@ -15,3 +15,5 @@ void Obstacle::drawTexture(Texture* texture) {
     texture->render(textureBox);
 }
 
+
+
