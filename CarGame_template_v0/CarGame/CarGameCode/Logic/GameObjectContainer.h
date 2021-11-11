@@ -20,8 +20,8 @@ public:
 
     ~GameObjectContainer() 
     { 
-        for (auto i : gameObjects)
-            removeObject(i);
+        for (int i = 0; i<gameObjects.size(); i++)
+            removeObject(getObject(i), i);
     }
 
     int getVecSize() { return gameObjects.size(); }
@@ -57,10 +57,11 @@ public:
         }
     }
 
-    void removeObject(GameObject* g)
+    void removeObject(GameObject* g, int i)
     {
         if (g != nullptr)
         {
+            gameObjects.erase(gameObjects.begin() + i);
             delete g;
             g = nullptr;
         }

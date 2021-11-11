@@ -25,6 +25,7 @@ void Game::startGame() {
     car->setPosition(car->getWidth(), height / 2.0); 
 
     maxObs = 20;
+    removed = 0;
     con = new GameObjectContainer();
     GameObjectGenerator::generate(this, maxObs);
 
@@ -34,13 +35,13 @@ void Game::startGame() {
             con->removeDead();
     }*/
 
-    int removed = 0;
+    //int removed = 0;
 
-    for (int i = 0; i < maxObs; i++) 
+    /*for (int i = 0; i < maxObs; i++) 
     {
         if (con -> getObject(i) == nullptr)
             removed++;
-    }
+    }*/
 
     maxObs -= removed;
 
@@ -84,16 +85,16 @@ void Game::update(){
         if (!car->isAlive()) {
             finished = true;
         }
+
     }
 
     for (int i = 0; i < con -> getVecSize(); i++)
     {
-        if (con -> getObject(i) != nullptr &&
-            con-> getObject(i)-> getX() < car->getX() - car->getWidth() / 2)
-        {
-            con->removeObject(con->getObject(i));
+        if (isRebased(con->getObject(i))) {
+            con->removeObject(con->getObject(i), i);
             maxObs--;
         }
+        
     }
 
     if (SDL_HasIntersection(&car->getCollider(),
@@ -237,4 +238,14 @@ void Game::menu() {
     string u = "Press space to start";
     renderText(u, x, y + font->getSize() * 2);
 
+}
+
+bool Game::isRebased(GameObject* gameObject) {
+    if (gameObject != nullptr &&
+        gameObject->getX() < car->getX() - car->getWidth() / 2)
+    {
+        return true;
+    }
+    else
+        return false;
 }

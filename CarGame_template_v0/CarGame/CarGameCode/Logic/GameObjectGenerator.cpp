@@ -15,7 +15,8 @@ void GameObjectGenerator::addInRandomPosition(Game* game, GameObject* o)
 {
     o->setDimension(50, 50);
     generateRandomPosition(game, o);
-    if(!game->con->hasCollision(o))
+    if (!game->con->hasCollision(o))
         game->con->add(o);
-
+    else
+        game->increaseRemoved();
 }

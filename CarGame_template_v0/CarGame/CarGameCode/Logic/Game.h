@@ -33,6 +33,7 @@ private:
 
     int width, height;
     int maxObs = 20;
+    int removed = 0;
     Car *car = nullptr;
     int roadLength;
     Goal* goal = nullptr;
@@ -93,8 +94,9 @@ public:
 
     void appendHelpInfo(string info_string);
 
-    bool isRebased();
+    bool isRebased(GameObject* gameObject);
 
+    void increaseRemoved() { removed++; }
 };
 
 

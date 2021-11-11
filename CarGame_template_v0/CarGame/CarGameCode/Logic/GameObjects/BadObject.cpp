@@ -1,6 +1,7 @@
 #include "BadObject.h"
 
 // TODO: add includes
+#include "../Game.h"
 
 void  BadObject::onEnter(){
     instances += 1;
@@ -15,7 +16,7 @@ void BadObject::reset(){
 };
 
 bool BadObject::toDelete() {
-    return !alive; 
+    return !alive || game->isRebased(this); 
 }
 
 int BadObject::instances = 0;
