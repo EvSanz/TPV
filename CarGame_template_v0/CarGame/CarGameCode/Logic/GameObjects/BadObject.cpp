@@ -15,7 +15,7 @@ void BadObject::reset(){
 };
 
 bool BadObject::toDelete() {
-    return !alive; //|| game->isRebased();
+    return !alive; 
 }
 
 int BadObject::instances = 0;
