@@ -12,7 +12,6 @@ class Collider;
 class GameObjectContainer { 
     //Este coge todos los objetos que no sean coche
     vector<GameObject*> gameObjects;
-    BadObject* badObject; 
 
 public:
 
@@ -24,8 +23,7 @@ public:
     { 
         for (int i = 0; i < gameObjects.size(); i++)
         {
-            if (!gameObjects[i]->isGood());
-                //badObject->onDelete();
+            gameObjects[i]->onDelete();
             removeObject(getObject(i), i);
         }
 
@@ -58,8 +56,6 @@ public:
         gameObjects.push_back(gameObject); 
 
         gameObject->onEnter();
-        //if (!gameObject->isGood());
-            //badObject->onEnter(); 
     }
 
     void removeDead()
@@ -77,8 +73,6 @@ public:
         {
             gameObjects.erase(gameObjects.begin() + i);
             g->onDelete();
-            //if (!g->isGood());
-                //badObject->onDelete();
             delete g;
             g = nullptr;
         }
@@ -95,7 +89,6 @@ public:
             if (i != nullptr &&
                 SDL_HasIntersection(&i->getCollider(), &g->getCollider()))
             {
-                //i = nullptr;
                 collisions.push_back(i);
             }
         }

@@ -7,7 +7,6 @@ class Game;
 
 class BadObject : public GameObject {
 protected:
-    //Game* game = nullptr;
     bool alive;
 public:
     static int instances;

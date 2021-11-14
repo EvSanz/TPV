@@ -3,10 +3,9 @@
 
 #include "GameObject.h"
 
-class GoodObject: public GameObject
+class GoodObject : public GameObject
 {
 protected:
-    Game* game = nullptr;
     bool alive;
 public:
     static int instances;
@@ -22,5 +21,4 @@ public:
     void static reset();
 };
 
-#endif 
-
+#endif //CARGAME_GOODOBJECT_H

@@ -14,11 +14,17 @@ protected:
     Game* game = nullptr;
 
 public:
-    static void generate(Game *game, int N_ROCKS = 0){
+    static void generateRocks(Game *game, int N_ROCKS = 0){
 
         for(int i = 0; i < N_ROCKS; i++)
             addInRandomPosition(game, new Obstacle(game));
     }   
+
+    static void generateLives(Game* game, int N_LIVES = 0) {
+
+        for (int i = 0; i < N_LIVES; i++)
+            addInRandomPosition(game, new PowerUp(game));
+    }
 };
 
 

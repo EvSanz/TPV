@@ -27,7 +27,8 @@ void Game::startGame() {
     maxObs = 20;
     removed = 0;
     con = new GameObjectContainer();
-    GameObjectGenerator::generate(this, maxObs);
+    GameObjectGenerator::generateRocks(this, maxObs);
+    GameObjectGenerator::generateLives(this, 5);
 
     /*for (int i = 0; i < maxObs; i++)
     {
@@ -85,7 +86,6 @@ void Game::update(){
         if (!car->isAlive()) {
             finished = true;
         }
-
     }
 
     for (int i = 0; i < con -> getVecSize(); i++)

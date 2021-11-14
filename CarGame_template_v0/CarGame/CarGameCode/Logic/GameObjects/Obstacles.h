@@ -18,10 +18,7 @@ class Obstacle: public BadObject {
 
 public:
     
-    Obstacle(Game* game) : BadObject(game) 
-    {
-        //GameObject::setBool(false);
-    };
+    Obstacle(Game* game) : BadObject(game) {};
 
     ~Obstacle() {};
 

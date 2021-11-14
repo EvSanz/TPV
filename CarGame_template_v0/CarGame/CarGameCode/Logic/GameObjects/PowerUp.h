@@ -8,15 +8,13 @@ class Game;
 #include "../../View/Texture.h"
 #include "../../View/Box.h"
 #include "GameObject.h"
-//aun no hace nada esta clase ya que no esta metida en la partida
-//acordarse de meter que si lo toca el coche se sube la vida
-class PowerUp : public GameObject {
+#include "GoodObject.h"
+
+class PowerUp : public GoodObject {
 
 public:
-    PowerUp(Game* game) : GameObject(game) 
-    {
-        GameObject::setBool(true);
-    };
+    PowerUp(Game* game) : GoodObject(game){};
+
     ~PowerUp() {};
 
     void draw();
