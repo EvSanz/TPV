@@ -60,10 +60,12 @@ public:
 
     void removeDead()
     {
-        for (auto i : gameObjects)
+        
+        for (int i = 0; i < gameObjects.size(); i++)
         {
-            if (i == nullptr)
-                delete i; 
+            if (gameObjects[i]->toDelete()) {
+                removeObject(getObject(i), i);
+            }
         }
     }
 

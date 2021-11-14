@@ -14,3 +14,9 @@ void PowerUp::drawTexture(Texture* texture) {
     SDL_Rect textureBox = { c.x + dX, c.y + dY, c.w, c.h };
     texture->render(textureBox);
 }
+
+bool PowerUp::receiveCarCollision(Car* car) {
+    car->moreLives();
+    alive = false;
+    return true;
+}

@@ -22,6 +22,8 @@
 #include "GameObjectContainer.h"
 #include "GameObjectGenerator.h"
 
+#include "GameObjects/BadObject.h"
+
 
 using namespace std;
 

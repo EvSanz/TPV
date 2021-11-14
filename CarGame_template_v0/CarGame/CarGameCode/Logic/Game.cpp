@@ -77,24 +77,30 @@ void Game::update(){
 
     car->update();
 
-    if (con->hasCollision(car))
-    {
-        maxObs--;
+    //if (con->hasCollision(car))
+    //{
+    //    maxObs--;
 
-        car->powerRemaining();
+    //    //car->powerRemaining();
+    //    con->removeDead();
 
-        if (!car->isAlive()) {
-            finished = true;
-        }
-    }
+    //    if (!car->isAlive()) {
+    //        finished = true;
+    //    }
+    //}
+    con->removeDead();
 
-    for (int i = 0; i < con -> getVecSize(); i++)
+    /*for (int i = 0; i < con -> getVecSize(); i++)
     {
         if (isRebased(con->getObject(i))) {
             con->removeObject(con->getObject(i), i);
             maxObs--;
         }
         
+    }*/
+
+    if (!car->isAlive()) {
+        finished = true;
     }
 
     if (SDL_HasIntersection(&car->getCollider(),
@@ -128,8 +134,10 @@ void Game::drawInfo() {
         + to_string(int(car->getPower())) + " Speed:"
         + to_string(int(car->getSpeed()));
 
-    if (maxObs > -1)
-        s += " Obstaculos:" + to_string(int(maxObs));
+    if (maxObs > -1) {
+        //s += " Obstaculos:" + to_string(int(maxObs));
+        s += " Obstaculos:" + to_string(int(BadObject::instances));
+    }
 
     if (distance > -1)
         s += " Distancia res:" + to_string(int(distance));

@@ -15,5 +15,9 @@ void Obstacle::drawTexture(Texture* texture) {
     texture->render(textureBox);
 }
 
-
+bool Obstacle::receiveCarCollision(Car* car) {
+    car->powerRemaining();
+    alive = false;
+    return true;
+}
 

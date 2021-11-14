@@ -43,6 +43,7 @@ public:
     void powerRemaining();
 
     void resetValor();
+    int moreLives() { return power++; }
 };
 
 
