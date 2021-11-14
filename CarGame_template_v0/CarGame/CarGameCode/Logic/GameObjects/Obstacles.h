@@ -10,16 +10,17 @@ class Game;
 #include "../../View/Texture.h"
 #include "../../View/Box.h"
 #include "GameObject.h"
+#include "BadObject.h"
 
-class Obstacle: public GameObject {
+class Obstacle: public BadObject {
 
 
 
 public:
     
-    Obstacle(Game* game) : GameObject(game) 
+    Obstacle(Game* game) : BadObject(game) 
     {
-        GameObject::setBool(false);
+        //GameObject::setBool(false);
     };
 
     ~Obstacle() {};
