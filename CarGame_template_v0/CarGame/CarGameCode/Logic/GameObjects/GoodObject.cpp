@@ -1,4 +1,5 @@
 #include "GoodObject.h"
+#include "../Game.h"
 
 void GoodObject::onEnter() {
     instances += 1;
@@ -13,7 +14,7 @@ void GoodObject::reset() {
 };
 
 bool GoodObject::toDelete() {
-    return !alive;
+    return !alive || game->isRebased(this);
 }
 
 int GoodObject::instances = 0;
