@@ -57,7 +57,8 @@ public:
     { 
         gameObjects.push_back(gameObject); 
 
-        if (!gameObject->isGood());
+        gameObject->onEnter();
+        //if (!gameObject->isGood());
             //badObject->onEnter(); 
     }
 
@@ -75,7 +76,8 @@ public:
         if (g != nullptr)
         {
             gameObjects.erase(gameObjects.begin() + i);
-            if (!g->isGood());
+            g->onDelete();
+            //if (!g->isGood());
                 //badObject->onDelete();
             delete g;
             g = nullptr;
