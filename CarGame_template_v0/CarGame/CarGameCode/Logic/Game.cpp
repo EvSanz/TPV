@@ -30,20 +30,6 @@ void Game::startGame() {
     GameObjectGenerator::generateRocks(this, maxObs);
     GameObjectGenerator::generateLives(this, 5);
 
-    /*for (int i = 0; i < maxObs; i++)
-    {
-        if (con->hasCollision(con->getObject(i)))
-            con->removeDead();
-    }*/
-
-    //int removed = 0;
-
-    /*for (int i = 0; i < maxObs; i++) 
-    {
-        if (con -> getObject(i) == nullptr)
-            removed++;
-    }*/
-
     maxObs -= removed;
 
     goal = new Goal(this);
@@ -77,27 +63,7 @@ void Game::update(){
 
     car->update();
 
-    //if (con->hasCollision(car))
-    //{
-    //    maxObs--;
-
-    //    //car->powerRemaining();
-    //    con->removeDead();
-
-    //    if (!car->isAlive()) {
-    //        finished = true;
-    //    }
-    //}
     con->removeDead();
-
-    /*for (int i = 0; i < con -> getVecSize(); i++)
-    {
-        if (isRebased(con->getObject(i))) {
-            con->removeObject(con->getObject(i), i);
-            maxObs--;
-        }
-        
-    }*/
 
     if (!car->isAlive()) {
         finished = true;
@@ -135,7 +101,6 @@ void Game::drawInfo() {
         + to_string(int(car->getSpeed()));
 
     if (maxObs > -1) {
-        //s += " Obstaculos:" + to_string(int(maxObs));
         s += " Obstaculos:" + to_string(int(BadObject::instances));
     }
 

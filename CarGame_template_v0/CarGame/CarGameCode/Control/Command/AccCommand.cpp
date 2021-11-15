@@ -1,23 +1,22 @@
-#include "MoveCommand.h"
+#include "AccCommand.h"
 
-
-void MoveCommand::execute() {
-    if (bUp && !bDown)
-        game->carUse("TurnL");
-    else if (bDown && !bUp)
-        game->carUse("TurnR");
+void AccCommand::execute() {
+    if (bLeft && !bRight)
+        game->carUse("decl");
+    else if (bLeft && !bRight)
+        game->carUse("accl");
 }
 
-bool MoveCommand::parse(SDL_Event& event) {
+bool AccCommand::parse(SDL_Event& event) {
     if (event.type == SDL_KEYDOWN || event.type == SDL_KEYUP) {
         bool v = (event.type == SDL_KEYDOWN);
         SDL_Keycode key = event.key.keysym.sym;
         switch (key) {
         case SDLK_UP:
-            bUp = v;
+            bLeft = v;
             return true;
         case SDLK_DOWN:
-            bDown = v;
+            bRight = v;
             return true;
         default:
             break;

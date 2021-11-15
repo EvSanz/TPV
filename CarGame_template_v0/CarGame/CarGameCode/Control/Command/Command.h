@@ -1,9 +1,9 @@
-#pragma once
-#include <SDL.h>
-#include "../../Logic/Game.h"
 
 #ifndef CARGAME_COMMAND_H
 #define CARGAME_COMMAND_H
+
+#include <SDL.h>
+#include "../../Logic/Game.h"
 
 // TODO add includes
 
@@ -19,7 +19,7 @@ public:
     virtual void execute() = 0;
     void bind(Game* game) {
         this->game = game;
-        game->appendHelpInfo(info_string);
+        //game->appendHelpInfo(info_string);
     }
 };
 

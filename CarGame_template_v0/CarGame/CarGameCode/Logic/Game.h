@@ -95,7 +95,7 @@ public:
 
     void menu();
 
-    void appendHelpInfo(string info_string);
+    //void appendHelpInfo(string info_string);
 
     bool isRebased(GameObject* gameObject);
 

@@ -1,8 +1,10 @@
-//
+﻿//
 // Created by eys on 20/8/21.
 //
 
 #include "ViewController.h"
+#include "Command/QuitCommand.h"
+
 
 ViewController::ViewController(Game *_game) {
     game = _game;
@@ -12,6 +14,13 @@ ViewController::ViewController(Game *_game) {
     game->setRenderer(renderer);
     game->loadTextures();
 
+    commandFactory = new CommandFactory(game); 
+    commandFactory -> add(new MoveCommand());
+    commandFactory -> add(new AccCommand());
+    //commandFactory -> add(new DebugCommand());
+    commandFactory -> add(new HelpCommand());
+    commandFactory -> add(new QuitCommand());
+    game -> startGame();
 }
 
 void ViewController::run() {
@@ -26,12 +35,12 @@ void ViewController::run() {
         handleEvents();
         if (frameTime >= frameDuration()) {
             switch (state) {
-            case ViewController::Menu:
+            case Menu:
                 clearBackground();
                 game->menu();
                 SDL_RenderPresent(renderer);
                 break;
-            case ViewController::Playing:
+            case Playing:
                 clearBackground();
                 game->update();
                 game->draw();
@@ -41,7 +50,7 @@ void ViewController::run() {
                     startGame = false;
                 }
                 break;
-            case ViewController::GameOver:
+            case GameOver:
                 clearBackground();
                 game->gameOver();
                 SDL_RenderPresent(renderer);
@@ -64,42 +73,50 @@ void ViewController::clearBackground() {
 }
 
 void ViewController::handleEvents() {
+    //SDL_Event event;
+    //while (SDL_PollEvent(&event) ){
+    //    if( event.type == SDL_QUIT)
+    //        game->setUserExit();
+    //    if (event.type == SDL_KEYDOWN) {
+    //        //SDL_Keycode key = event.key.keysym.sym;
+    //        switch (event.key.keysym.sym) {
+    //        case SDLK_LEFT:
+    //            if(startGame)
+    //                game->carUse("decl");
+    //            break;
+    //        case SDLK_RIGHT:
+    //            if(startGame)
+    //                game->carUse("accl");
+    //            break;
+    //        case SDLK_UP:
+    //            if(startGame)
+    //                game->carUse("TurnL");
+    //            break;
+    //        case SDLK_DOWN:
+    //            if(startGame)
+    //                game->carUse("TurnR");
+    //            break;
+    //        case SDLK_ESCAPE:
+    //            game->setUserExit();
+    //            break;
+    //        case SDLK_SPACE:
+    //            if (!startGame) {
+    //                startGame = true;
+    //                state = Playing;
+    //                game->startGame();
+    //            }
+    //            break;
+    //        default:
+    //            break;
+    //        }
+    //    }
+
     SDL_Event event;
-    while (SDL_PollEvent(&event) ){
-        if( event.type == SDL_QUIT)
-            game->setUserExit();
-        if (event.type == SDL_KEYDOWN) {
-            //SDL_Keycode key = event.key.keysym.sym;
-            switch (event.key.keysym.sym) {
-            case SDLK_LEFT:
-                if(startGame)
-                    game->carUse("decl");
-                break;
-            case SDLK_RIGHT:
-                if(startGame)
-                    game->carUse("accl");
-                break;
-            case SDLK_UP:
-                if(startGame)
-                    game->carUse("TurnL");
-                break;
-            case SDLK_DOWN:
-                if(startGame)
-                    game->carUse("TurnR");
-                break;
-            case SDLK_ESCAPE:
-                game->setUserExit();
-                break;
-            case SDLK_SPACE:
-                if (!startGame) {
-                    startGame = true;
-                    state = Playing;
-                    game->startGame();
-                }
-                break;
-            default:
-                break;
-            }
+    while (SDL_PollEvent(&event)) {
+        Command* command = commandFactory-> getCommand(event);
+        if (command != nullptr) {
+            command->execute(); 
+            break;
         }
     }
 }
