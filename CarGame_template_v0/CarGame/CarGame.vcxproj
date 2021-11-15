@@ -31,7 +31,6 @@
     <ClInclude Include="CarGameCode\Control\Command\AccCommand.h" />
     <ClInclude Include="CarGameCode\Control\CommandFactory.h" />
     <ClInclude Include="CarGameCode\Control\Command\Command.h" />
-    <ClInclude Include="CarGameCode\Control\Command\MoveCommand.h" />
     <ClInclude Include="CarGameCode\Control\Command\QuitCommand.h" />
     <ClInclude Include="CarGameCode\Control\ViewController.h" />
     <ClInclude Include="CarGameCode\Logic\Game.h" />
