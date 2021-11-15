@@ -47,7 +47,8 @@ Game::~Game() {
     if(car != nullptr)
         delete car;
     
-    con->~GameObjectContainer(); 
+    con->~GameObjectContainer();
+    delete con;
 
     if(goal != nullptr)
         delete goal;
@@ -82,7 +83,8 @@ void Game::draw(){
     car->draw(); 
     con->draw();
     goal->draw();
-    drawInfo();
+    //drawInfo();
+    info->drawInfo();
 }
 
 void Game::drawInfo() {

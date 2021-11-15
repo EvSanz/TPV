@@ -23,7 +23,7 @@
 #include "GameObjectGenerator.h"
 
 #include "GameObjects/BadObject.h"
-
+#include "../View/Infobar.h"
 
 using namespace std;
 
@@ -48,6 +48,8 @@ private:
     SDL_Renderer* renderer = nullptr;
     Font *font;
 
+    friend class Infobar;
+    Infobar* info;
 public:
 
     const unsigned int CAR_WIDTH = 100;

@@ -11,6 +11,7 @@
 #include "CommandFactory.h"
 
 #include "../Logic/Game.h"
+#include "../View/Infobar.h"
 
 const int FRAME_RATE = 30;
 
