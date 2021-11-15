@@ -147,5 +147,7 @@ void ViewController::initSDL() {
 ViewController::~ViewController() {
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
+    delete commandFactory;
+    commandFactory = nullptr;
     SDL_Quit();
 }

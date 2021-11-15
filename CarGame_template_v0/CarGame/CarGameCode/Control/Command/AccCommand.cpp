@@ -2,9 +2,11 @@
 
 void AccCommand::execute() {
     if (bLeft && !bRight)
-        game->carUse("decl");
+        game->carSpeedo(false);
+    //game->carUse("decl");
     else if (!bLeft && bRight)
-        game->carUse("accl");
+        game->carSpeedo(true);
+        //game->carUse("accl");
 }
 
 bool AccCommand::parse(SDL_Event& event) {

@@ -3,9 +3,11 @@
 
 void MoveCommand::execute() {
     if (bUp && !bDown)
-        game->carUse("TurnL");
+        game->carUpDown(true);
+    //game->carUse("TurnL");
     else if (bDown && !bUp)
-        game->carUse("TurnR");
+        game->carUpDown(false);
+        //game->carUse("TurnR");
 }
 
 bool MoveCommand::parse(SDL_Event& event) {

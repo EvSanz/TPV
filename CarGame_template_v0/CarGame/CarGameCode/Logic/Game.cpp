@@ -61,6 +61,7 @@ Game::~Game() {
     
     con->~GameObjectContainer();
     delete con;
+    con = nullptr;
 
     if(goal != nullptr)
         delete goal;
@@ -199,7 +200,7 @@ Point2D<int> Game::getOrigin() {
     return {int(-(car->getX() - car->getWidth())), 0};
 }
 
-void Game::carUse(string instruction) {
+/*void Game::carUse(string instruction) {
     if (instruction == "accl") {
         car->speedControl(true);
     }
@@ -212,6 +213,14 @@ void Game::carUse(string instruction) {
     else if (instruction == "TurnR") {
         car->verticalmove(false);
     }
+}*/
+void Game::carSpeedo(bool stade) {
+  
+    car->speedControl(stade);  
+}
+
+void Game::carUpDown(bool state) {
+    car->verticalmove(state);
 }
 
 void Game::menu() {
