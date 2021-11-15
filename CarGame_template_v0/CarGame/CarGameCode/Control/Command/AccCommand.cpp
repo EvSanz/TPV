@@ -3,7 +3,7 @@
 void AccCommand::execute() {
     if (bLeft && !bRight)
         game->carUse("decl");
-    else if (bLeft && !bRight)
+    else if (!bLeft && bRight)
         game->carUse("accl");
 }
 
@@ -12,10 +12,10 @@ bool AccCommand::parse(SDL_Event& event) {
         bool v = (event.type == SDL_KEYDOWN);
         SDL_Keycode key = event.key.keysym.sym;
         switch (key) {
-        case SDLK_UP:
+        case SDLK_LEFT:
             bLeft = v;
             return true;
-        case SDLK_DOWN:
+        case SDLK_RIGHT:
             bRight = v;
             return true;
         default:

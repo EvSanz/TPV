@@ -3,7 +3,6 @@
 //
 
 #include "ViewController.h"
-#include "Command/QuitCommand.h"
 
 
 ViewController::ViewController(Game *_game) {
@@ -20,13 +19,14 @@ ViewController::ViewController(Game *_game) {
     //commandFactory -> add(new DebugCommand());
     commandFactory -> add(new HelpCommand());
     commandFactory -> add(new QuitCommand());
-    game -> startGame();
+    commandFactory->add(new NextCommand());
+    //game -> startGame();
 }
 
 void ViewController::run() {
     uint32_t startTime = 0;
     uint32_t frameTime;
-    state = Menu;
+    game->state = game->Menu;
     startGame = false;
    
 
@@ -34,29 +34,29 @@ void ViewController::run() {
         frameTime = SDL_GetTicks() - startTime;
         handleEvents();
         if (frameTime >= frameDuration()) {
-            switch (state) {
-            case Menu:
+            if (game->state == game->Menu)
+            {
                 clearBackground();
                 game->menu();
                 SDL_RenderPresent(renderer);
-                break;
-            case Playing:
+            }
+            else if (game->state == game->Playing)
+            {
                 clearBackground();
                 game->update();
                 game->draw();
                 SDL_RenderPresent(renderer);
                 if (game->finished) {
-                    state = GameOver;
+                    game->state = game -> GameOver;
                     startGame = false;
                 }
-                break;
-            case GameOver:
+            }
+
+            else if (game->state == game->GameOver)
+            {
                 clearBackground();
                 game->gameOver();
                 SDL_RenderPresent(renderer);
-                break;
-            default:
-                break;
             }
             
             startTime = SDL_GetTicks();

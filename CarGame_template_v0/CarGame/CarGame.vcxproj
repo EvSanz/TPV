@@ -12,6 +12,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CarGameCode\Control\Command\AccCommand.cpp" />
+    <ClCompile Include="CarGameCode\Control\Command\NextCommand.cpp" />
     <ClCompile Include="CarGameCode\Control\Command\QuitCommand.cpp" />
     <ClCompile Include="CarGameCode\Control\ViewController.cpp" />
     <ClCompile Include="CarGameCode\Logic\Game.cpp" />
@@ -32,6 +33,7 @@
     <ClInclude Include="CarGameCode\Control\Command\AccCommand.h" />
     <ClInclude Include="CarGameCode\Control\CommandFactory.h" />
     <ClInclude Include="CarGameCode\Control\Command\Command.h" />
+    <ClInclude Include="CarGameCode\Control\Command\NextCommand.h" />
     <ClInclude Include="CarGameCode\Control\Command\QuitCommand.h" />
     <ClInclude Include="CarGameCode\Control\ViewController.h" />
     <ClInclude Include="CarGameCode\Logic\Game.h" />

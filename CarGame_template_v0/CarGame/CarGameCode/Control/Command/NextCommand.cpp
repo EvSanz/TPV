@@ -1,7 +1,8 @@
 #include "NextCommand.h"
 
+
 void NextCommand::execute() {
-    
+    game->changeState(); 
 }
 
 bool NextCommand::parse(SDL_Event& event) {

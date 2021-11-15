@@ -14,6 +14,18 @@ Game::Game(string name, int width, int height, int roadLength) {
     font = new Font("../Images/Monospace.ttf", 12);
 }
 
+void Game::changeState()
+{
+    if (state == Menu || state == GameOver)
+    {
+        if (state == GameOver)
+            con->~GameObjectContainer();
+
+        state = Playing;
+        startGame(); 
+    }
+
+}
 
 void Game::startGame() {
 
@@ -83,8 +95,8 @@ void Game::draw(){
     car->draw(); 
     con->draw();
     goal->draw();
-    //drawInfo();
-    info->drawInfo();
+    drawInfo();
+    //info->drawInfo();
 }
 
 void Game::drawInfo() {

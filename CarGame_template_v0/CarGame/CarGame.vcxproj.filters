@@ -56,6 +56,12 @@
     <ClCompile Include="CarGameCode\Control\Command\AccCommand.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="CarGameCode\View\Infobar.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="CarGameCode\Control\Command\NextCommand.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarGameCode\Logic\Game.h" />
@@ -82,5 +88,7 @@
     <ClInclude Include="CarGameCode\Control\Command\MoveCommand.h" />
     <ClInclude Include="CarGameCode\Control\Command\HelpCommand.h" />
     <ClInclude Include="CarGameCode\Control\Command\AccCommand.h" />
+    <ClInclude Include="CarGameCode\View\Infobar.h" />
+    <ClInclude Include="CarGameCode\Control\Command\NextCommand.h" />
   </ItemGroup>
 </Project>

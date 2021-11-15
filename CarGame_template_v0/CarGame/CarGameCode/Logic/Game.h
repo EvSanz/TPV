@@ -40,7 +40,6 @@ private:
     Car *car = nullptr;
     int roadLength;
     Goal* goal = nullptr;
-    //array<Obstacle*, 20> obs;
     int startTime = 0;
     int endTime = 0; 
 
@@ -58,7 +57,7 @@ public:
 
 
     bool finished;
-    //enum { Menu, Playing, GameOver } state;
+    enum { Menu, Playing, GameOver } state;
 
     Game(string name, int width, int height, int roadLength);
     ~Game();
@@ -102,6 +101,8 @@ public:
     bool isRebased(GameObject* gameObject);
 
     void increaseRemoved() { removed++; }
+
+    void changeState(); 
 };
 
 

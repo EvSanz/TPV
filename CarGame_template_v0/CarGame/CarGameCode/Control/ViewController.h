@@ -26,7 +26,6 @@ private:
 
     void initSDL();
 public:
-    enum { Menu, Playing, GameOver } state;
 
     ViewController(Game *game);
 

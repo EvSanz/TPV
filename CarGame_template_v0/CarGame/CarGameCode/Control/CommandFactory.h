@@ -8,6 +8,7 @@
 //#include "CarGameCode/Control/Commands/DebugCommand.h"
 #include "Command/HelpCommand.h"
 #include "Command/AccCommand.h"
+#include "Command/NextCommand.h"
 #include <vector>
 #include <SDL.h>
 #include "Command/Command.h"
