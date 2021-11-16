@@ -8,7 +8,7 @@ class AccCommand : public Command
     bool bRight = false;
 public:
 
-    const string INFO_STRING = "[RIGHT/LEFT] to move";
+    const string INFO_STRING = "[RIGHT/LEFT] to speed up";
 
     AccCommand() {
         info_string = INFO_STRING;

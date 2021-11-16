@@ -6,7 +6,7 @@ class NextCommand: public Command
 {
 public:
 
-    const string INFO_STRING = "[UP/DOWN] to move";
+    const string INFO_STRING = "[SPACE] to start the game";
 
     NextCommand() {
         info_string = INFO_STRING;
