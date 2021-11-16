@@ -51,6 +51,7 @@ private:
     Font *font;
 
     Infobar* infoBar;
+    vector<string> helpInfo;
 public:
     friend class Infobar;
     const unsigned int CAR_WIDTH = 100;
@@ -100,7 +101,7 @@ public:
 
     void menu();
 
-    //void appendHelpInfo(string info_string);
+    void appendHelpInfo(string info_string) { helpInfo.push_back(info_string); };
 
     bool isRebased(GameObject* gameObject);
 

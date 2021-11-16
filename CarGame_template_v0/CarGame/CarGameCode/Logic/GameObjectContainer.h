@@ -23,7 +23,7 @@ public:
     { 
         for (int i = 0; i < gameObjects.size(); i++)
         {
-            gameObjects[i]->onDelete();
+            //gameObjects[i]->onDelete();
             removeObject(getObject(i), i);
         }
 
