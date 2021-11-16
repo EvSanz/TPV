@@ -40,8 +40,7 @@ void Game::startGame() {
     maxObs = 20;
     removed = 0;
     con = new GameObjectContainer();
-    GameObjectGenerator::generateRocks(this, maxObs);
-    GameObjectGenerator::generateLives(this, 5);
+    GameObjectGenerator::generateRocks(this, maxObs, 5, 5);
 
     maxObs -= removed;
 

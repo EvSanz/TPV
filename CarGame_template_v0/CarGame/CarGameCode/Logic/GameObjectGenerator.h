@@ -14,16 +14,28 @@ protected:
     Game* game = nullptr;
 
 public:
-    static void generateRocks(Game *game, int N_ROCKS = 0){
+    static void generateRocks(Game *game, int N_ROCKS = 0, int N_LIVES = 0, int N_COINS = 0){
 
         for(int i = 0; i < N_ROCKS; i++)
             addInRandomPosition(game, new Obstacle(game));
+
+        for (int i = 0; i < N_LIVES; i++)
+            addInRandomPosition(game, new PowerUp(game));
+
+        for (int i = 0; i < N_COINS; i++)
+            addInRandomPosition(game, new Coin(game));
     }   
 
     static void generateLives(Game* game, int N_LIVES = 0) {
 
         for (int i = 0; i < N_LIVES; i++)
             addInRandomPosition(game, new PowerUp(game));
+    }
+
+    static void generateCoins(Game* game, int N_COINS = 0) {
+
+        for (int i = 0; i < N_COINS; i++)
+            addInRandomPosition(game, new Coin(game));
     }
 };
 

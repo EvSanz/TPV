@@ -1,4 +1,4 @@
-#ifndef CARGAME_COLLIDER_H
+﻿#ifndef CARGAME_COLLIDER_H
 #define CARGAME_COLLIDER_H
 
 class Car;
@@ -9,6 +9,10 @@ public:
     virtual bool receiveCarCollision(Car *car){
         return false;
     };
+
+    //virtual bool receiveBulletCollision(Bullet ∗bullet) {
+        //return false;
+    //};
 };
 
 #endif //CARGAME_COLLIDER_H

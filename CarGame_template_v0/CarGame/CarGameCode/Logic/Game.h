@@ -18,11 +18,14 @@
 #include "GameObjects/Obstacles.h"
 #include "GameObjects/Goal.h"
 #include "GameObjects/PowerUp.h"
+#include "GameObjects/Coin.h"
+#include "GameObjects/Bullet.h"
 
 #include "GameObjectContainer.h"
 #include "GameObjectGenerator.h"
 
 #include "GameObjects/BadObject.h"
+#include "GameObjects/GoodObject.h"
 #include "../View/Infobar.h"
 
 using namespace std;

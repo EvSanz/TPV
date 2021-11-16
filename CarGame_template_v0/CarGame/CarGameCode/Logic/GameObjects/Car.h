@@ -21,9 +21,11 @@ private:
     const int VSPEED = 5;
     const int MAX_SPEED = 10;
     const int INITIAL_POWER = 3; 
+    const int INITIAL_COINS = 3;
 
     double HSPEED = 1;
     int power = INITIAL_POWER;
+    int coins = INITIAL_COINS; 
 
 public:
     Car(Game* game) : GameObject(game) { /*texture = nullptr;*/ };
@@ -35,6 +37,7 @@ public:
     
     int getPower() { return power; };
     int getSpeed() { return HSPEED; };
+    int getCoins() { return coins; }
 
     void speedControl(bool accelerate);
     void verticalmove(bool lTurn);
@@ -43,7 +46,9 @@ public:
     void powerRemaining();
 
     void resetValor();
+
     int moreLives() { return power++; }
+    int moreCoins() { return coins++; }
 };
 
 

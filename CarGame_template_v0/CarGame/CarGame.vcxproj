@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CarGameCode\Logic\GameObjects\Bullet.cpp" />
     <ClCompile Include="CarGameCode\Control\Command\AccCommand.cpp" />
     <ClCompile Include="CarGameCode\Control\Command\NextCommand.cpp" />
     <ClCompile Include="CarGameCode\Control\Command\QuitCommand.cpp" />
@@ -28,8 +29,10 @@
     <ClCompile Include="CarGameCode\Logic\GameObjects\GoodObject.cpp" />
     <ClCompile Include="CarGameCode\Control\Command\MoveCommand.cpp" />
     <ClCompile Include="CarGameCode\Control\Command\HelpCommand.cpp" />
+    <ClCompile Include="CarGameCode\Logic\GameObjects\Coin.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CarGameCode\Logic\GameObjects\Bullet.h" />
     <ClInclude Include="CarGameCode\Control\Command\AccCommand.h" />
     <ClInclude Include="CarGameCode\Control\CommandFactory.h" />
     <ClInclude Include="CarGameCode\Control\Command\Command.h" />
@@ -56,6 +59,7 @@
     <ClInclude Include="CarGameCode\Logic\GameObjects\GoodObject.h" />
     <ClInclude Include="CarGameCode\Control\Command\MoveCommand.h" />
     <ClInclude Include="CarGameCode\Control\Command\HelpCommand.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjects\Coin.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}</ProjectGuid>

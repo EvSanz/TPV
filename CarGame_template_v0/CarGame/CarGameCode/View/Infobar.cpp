@@ -24,6 +24,8 @@ void Infobar::drawInfo() {
     if (distance > -1)
         s += " Distancia res:" + to_string(int(distance));
 
+    s += " Coins:" + to_string(int(game->car->getCoins()));
+
     s += " Tiempo:" + to_string(int(SDL_GetTicks() - game->startTime));
 
     game->renderText(s, x, y);

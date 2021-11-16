@@ -1,12 +1,12 @@
-#include "PowerUp.h"
+#include "Bullet.h"
 #include "../Game.h"
 
-void PowerUp::draw() {
+void Bullet::draw() {
     if (this != nullptr)
-        drawTexture(game->getTexture(powerUpTexture));
+        drawTexture(game->getTexture(bulletTexture));
 }
 
-void PowerUp::drawTexture(Texture* texture) {
+void Bullet::drawTexture(Texture* texture) {
     int dX = game->getOrigin().getX();
     int dY = game->getOrigin().getY();
 
@@ -15,8 +15,8 @@ void PowerUp::drawTexture(Texture* texture) {
     texture->render(textureBox);
 }
 
-bool PowerUp::receiveCarCollision(Car* car) {
-    
+bool Bullet::receiveCarCollision(Car* car) {
+
     car->moreLives();
     alive = false;
     return true;

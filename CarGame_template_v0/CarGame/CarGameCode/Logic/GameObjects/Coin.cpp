@@ -1,12 +1,12 @@
-#include "PowerUp.h"
+#include "Coin.h"
 #include "../Game.h"
 
-void PowerUp::draw() {
+void Coin::draw() {
     if (this != nullptr)
-        drawTexture(game->getTexture(powerUpTexture));
+        drawTexture(game->getTexture(coinTexture));
 }
 
-void PowerUp::drawTexture(Texture* texture) {
+void Coin::drawTexture(Texture* texture) {
     int dX = game->getOrigin().getX();
     int dY = game->getOrigin().getY();
 
@@ -15,9 +15,9 @@ void PowerUp::drawTexture(Texture* texture) {
     texture->render(textureBox);
 }
 
-bool PowerUp::receiveCarCollision(Car* car) {
-    
-    car->moreLives();
+bool Coin::receiveCarCollision(Car* car) {
+
+    car->moreCoins();
     alive = false;
     return true;
 }
