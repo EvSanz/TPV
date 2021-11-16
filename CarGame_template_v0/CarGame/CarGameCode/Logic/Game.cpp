@@ -12,6 +12,7 @@ Game::Game(string name, int width, int height, int roadLength) {
     this->height = height;
     doExit = false;
     font = new Font("../Images/Monospace.ttf", 12);
+    infoBar = new Infobar(this);
 }
 
 void Game::changeState()
@@ -71,6 +72,9 @@ Game::~Game() {
 
     if(textureContainer != nullptr)
         delete textureContainer;
+
+    if (infoBar != nullptr)
+        delete infoBar;
 }
 
 void Game::update(){
@@ -101,7 +105,7 @@ void Game::draw(){
 }
 
 void Game::drawInfo() {
-    int x = font->getSize() / 2;
+    /*int x = font->getSize() / 2;
     int y = font->getSize() / 2;
 
     SDL_Rect rect = {0, 0, getWindowWidth(),
@@ -124,7 +128,8 @@ void Game::drawInfo() {
 
     s += " Tiempo:" + to_string(int(SDL_GetTicks() - startTime));
 
-    renderText(s, x, y);
+    renderText(s, x, y);*/
+    infoBar->drawInfo();
 }
 
 void Game::gameOver()

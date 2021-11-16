@@ -47,10 +47,9 @@ private:
     SDL_Renderer* renderer = nullptr;
     Font *font;
 
-    friend class Infobar;
-    Infobar* info;
+    Infobar* infoBar;
 public:
-
+    friend class Infobar;
     const unsigned int CAR_WIDTH = 100;
     const unsigned  int CAR_HEIGHT = 50;
     const unsigned  int GOAL_WIDTH = 50;

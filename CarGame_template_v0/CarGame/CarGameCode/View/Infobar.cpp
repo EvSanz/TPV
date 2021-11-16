@@ -28,3 +28,11 @@ void Infobar::drawInfo() {
 
     game->renderText(s, x, y);
 }
+
+void Infobar::drawHelp() {
+
+}
+
+void Infobar::drawState() {
+
+}
