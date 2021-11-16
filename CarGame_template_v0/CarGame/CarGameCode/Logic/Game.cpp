@@ -60,7 +60,7 @@ Game::~Game() {
     if(car != nullptr)
         delete car;
     
-    con->~GameObjectContainer();
+    //con->~GameObjectContainer();
     delete con;
     con = nullptr;
 
@@ -130,6 +130,7 @@ void Game::drawInfo() {
 
     renderText(s, x, y);*/
     infoBar->drawInfo();
+    //infoBar->drawHelp();
 }
 
 void Game::gameOver()

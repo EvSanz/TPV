@@ -30,7 +30,13 @@ void Infobar::drawInfo() {
 }
 
 void Infobar::drawHelp() {
+    int x = game->font->getSize() / 2;
+    int y = game->font->getSize() * 2;
 
+    for (auto a : game->helpInfo) {
+        game->renderText(a, x, y);
+        y += game->font->getSize();
+    }
 }
 
 void Infobar::drawState() {

@@ -19,7 +19,7 @@ public:
     virtual void execute() = 0;
     void bind(Game* game) {
         this->game = game;
-        //game->appendHelpInfo(info_string);
+        game->appendHelpInfo(info_string);
     }
 };
 
