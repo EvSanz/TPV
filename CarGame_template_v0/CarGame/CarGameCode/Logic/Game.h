@@ -52,6 +52,7 @@ private:
 
     Infobar* infoBar;
     vector<string> helpInfo;
+    bool help = false;
 public:
     friend class Infobar;
     const unsigned int CAR_WIDTH = 100;
@@ -67,7 +68,7 @@ public:
 
 
     //GameObjectGenerator *gen;
-    GameObjectContainer *con;
+    GameObjectContainer *con = nullptr;
 
     void startGame();
     void update();
@@ -109,6 +110,8 @@ public:
     void increaseRemoved() { removed++; }
 
     void changeState(); 
+    
+    void toggleHelp() { help = !help; }
 };
 
 

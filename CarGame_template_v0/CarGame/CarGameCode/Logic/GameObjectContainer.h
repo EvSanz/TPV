@@ -21,11 +21,17 @@ public:
 
     ~GameObjectContainer() 
     { 
-        for (int i = 0; i < gameObjects.size(); i++)
+        /*for (int i = 0; i < gameObjects.size(); i++)
         {
             //gameObjects[i]->onDelete();
             removeObject(getObject(i), i);
+        }*/
+
+        for (auto g : gameObjects) {
+            g->onDelete();
+            delete g;
         }
+        gameObjects.clear();
 
     }
 

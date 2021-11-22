@@ -15,8 +15,12 @@ class Game;
 class Goal: public GameObject {
 
 public:
-    Goal(Game* game) : GameObject(game) {};
-    ~Goal() {};
+    Goal(Game* game) : GameObject(game) {
+        cout << "Goal constructor: " << endl;
+    };
+    ~Goal() {
+        cout << "Goal destructor" << endl;
+    };
 
     void draw();
     void drawTexture(Texture* texture);

@@ -16,9 +16,14 @@ class Obstacle: public BadObject {
 
 public:
     
-    Obstacle(Game* game) : BadObject(game) {};
+    Obstacle(Game* game) : BadObject(game) {
+        //id = instances;
+        //cout << "Rock constructor: " << id << endl;
+    };
 
-    ~Obstacle() {};
+    ~Obstacle() {
+        //cout << "Rock destructor: " << id << endl;
+    };
 
     void draw();
     void drawTexture(Texture* texture);
