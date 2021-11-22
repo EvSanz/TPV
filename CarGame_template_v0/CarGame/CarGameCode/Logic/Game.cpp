@@ -137,7 +137,8 @@ void Game::drawInfo() {
 
     renderText(s, x, y);*/
     infoBar->drawInfo();
-    //infoBar->drawHelp();
+    if(help)
+        infoBar->drawHelp();
 }
 
 void Game::gameOver()
