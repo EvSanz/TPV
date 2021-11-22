@@ -67,7 +67,7 @@ public:
 
 
     //GameObjectGenerator *gen;
-    GameObjectContainer *con;
+    GameObjectContainer *con = nullptr;
 
     void startGame();
     void update();

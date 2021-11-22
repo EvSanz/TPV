@@ -18,6 +18,7 @@ protected:
     Game* game;
     bool good;
     void drawTexture(Texture* texture) {};
+    int id;
 public:
     GameObject(Game *game): game(game){};
     virtual ~GameObject(){};

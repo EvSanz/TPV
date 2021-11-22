@@ -33,17 +33,25 @@ void Game::startGame() {
     finished = false;
     srand(time(NULL));
 
+    if (car != nullptr)
+        delete car;
     car = new Car(this);
     car->setDimension(CAR_WIDTH, CAR_HEIGHT);
     car->setPosition(car->getWidth(), height / 2.0); 
 
     maxObs = 20;
     removed = 0;
+    if (con != nullptr) {
+        delete con;
+        con = nullptr;
+    }
     con = new GameObjectContainer();
     GameObjectGenerator::generateRocks(this, maxObs, 5, 5); //revisar esto que nos esta dando memory leaks
 
     maxObs -= removed;
 
+    if (goal != nullptr)
+        delete goal;
     goal = new Goal(this);
     goal->setDimension(GOAL_WIDTH, getWindowHeight());
     goal->setPosition(roadLength, getWindowHeight()/2);
