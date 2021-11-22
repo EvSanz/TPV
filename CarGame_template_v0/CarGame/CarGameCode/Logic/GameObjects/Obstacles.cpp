@@ -21,3 +21,8 @@ bool Obstacle::receiveCarCollision(Car* car) {
     return true;
 }
 
+bool Obstacle::receiveBulletCollision(Bullet* bullet) {
+    alive = false;
+    return true;
+}
+

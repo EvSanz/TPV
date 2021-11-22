@@ -1,4 +1,3 @@
-#pragma once
 #ifndef CARGAME_BULLET_H
 #define CARGAME_BULLET_H
 
@@ -8,19 +7,20 @@ class Game;
 #include "../../View/Texture.h"
 #include "../../View/Box.h"
 #include "GameObject.h"
-#include "GoodObject.h"
 
-class Bullet : public GoodObject {
+class Bullet : public GameObject {
+private:
+    const int HSPEED = 15;
 
 public:
-    Bullet(Game* game) : GoodObject(game) {};
+    Bullet(Game* game) : GameObject(game) {};
 
     ~Bullet() {};
 
     void draw();
     void drawTexture(Texture* texture);
-    void update() {};
-    bool receiveCarCollision(Car* car) override;
+    void update();
+    
 };
 
 #endif

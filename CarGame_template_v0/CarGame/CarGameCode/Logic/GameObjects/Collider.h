@@ -2,6 +2,7 @@
 #define CARGAME_COLLIDER_H
 
 class Car;
+class Bullet;
 
 class Collider {
 
@@ -10,9 +11,9 @@ public:
         return false;
     };
 
-    //virtual bool receiveBulletCollision(Bullet ∗bullet) {
-        //return false;
-    //};
+    virtual bool receiveBulletCollision(Bullet *bullet) {
+        return false;
+    };
 };
 
 #endif //CARGAME_COLLIDER_H

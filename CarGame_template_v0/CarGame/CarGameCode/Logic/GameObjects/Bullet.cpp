@@ -15,9 +15,14 @@ void Bullet::drawTexture(Texture* texture) {
     texture->render(textureBox);
 }
 
-bool Bullet::receiveCarCollision(Car* car) {
+void Bullet::update() {
 
-    car->moreLives();
-    alive = false;
-    return true;
+    setPosition(getX() + HSPEED, getY());
+
+    vector<Collider*> collisions = game->con->getCollisions(this);
+
+    for (auto c : collisions) {
+        c->receiveBulletCollision(this);
+    }
 }
+

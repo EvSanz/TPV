@@ -205,22 +205,11 @@ Point2D<int> Game::getOrigin() {
     return {int(-(car->getX() - car->getWidth())), 0};
 }
 
-/*void Game::carUse(string instruction) {
-    if (instruction == "accl") {
-        car->speedControl(true);
-    }
-    else if (instruction == "decl") {
-        car->speedControl(false);
-    }
-    else if (instruction == "TurnL") {
-        car->verticalmove(true);
-    }
-    else if (instruction == "TurnR") {
-        car->verticalmove(false);
-    }
-}*/
+void Game::carShoot() {
+    car->shootBullet();
+}
+
 void Game::carSpeedo(bool stade) {
-  
     car->speedControl(stade);  
 }
 

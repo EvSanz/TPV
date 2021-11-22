@@ -14,8 +14,6 @@ class Game;
 
 class Obstacle: public BadObject {
 
-
-
 public:
     
     Obstacle(Game* game) : BadObject(game) {};
@@ -25,7 +23,9 @@ public:
     void draw();
     void drawTexture(Texture* texture);
     void update() {}; 
+
     bool receiveCarCollision(Car* car) override;
+    bool receiveBulletCollision(Bullet* bullet) override;
 };
 
 

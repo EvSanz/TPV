@@ -83,3 +83,11 @@ void Car::resetValor()
     power = INITIAL_POWER;
     setPosition(getWidth(), game->getWindowHeight() / 2.0); 
 }
+
+void Car::shootBullet()
+{
+    if (coins > 0)
+    {
+        coins--; 
+    }
+}

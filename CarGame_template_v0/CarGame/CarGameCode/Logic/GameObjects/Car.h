@@ -41,6 +41,7 @@ public:
 
     void speedControl(bool accelerate);
     void verticalmove(bool lTurn);
+    void shootBullet(); 
 
     bool isAlive() { return power > 0; }
     void powerRemaining();
