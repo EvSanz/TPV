@@ -40,7 +40,6 @@ private:
     int width, height;
     int maxObs = 20;
     int removed = 0;
-    Car *car = nullptr;
     int roadLength;
     Goal* goal = nullptr;
     int startTime = 0;
@@ -66,9 +65,8 @@ public:
     Game(string name, int width, int height, int roadLength);
     ~Game();
 
-
-    //GameObjectGenerator *gen;
     GameObjectContainer *con = nullptr;
+    Car* car = nullptr;
 
     void startGame();
     void update();

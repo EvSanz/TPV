@@ -88,6 +88,8 @@ void Game::update(){
 
     car->update();
 
+    con->update(); 
+
     con->removeDead();
 
     if (!car->isAlive()) {
@@ -215,7 +217,11 @@ Point2D<int> Game::getOrigin() {
 }
 
 void Game::carShoot() {
-    car->shootBullet();
+    if (car->getCoins() > 0)
+    {
+        GameObjectGenerator::generateBullet(this); 
+        car->shootBullet();
+    }  
 }
 
 void Game::carSpeedo(bool stade) {

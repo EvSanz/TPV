@@ -9,6 +9,7 @@ class GameObjectGenerator {
     Point2D<int> static generateRandomPosition(Game* game, GameObject* o);
 
     void static addInRandomPosition(Game* game, GameObject* o);
+    void static addInPosition(Game* game, GameObject* o);
 
 protected:
     Game* game = nullptr;
@@ -24,18 +25,11 @@ public:
 
         for (int i = 0; i < N_COINS; i++)
             addInRandomPosition(game, new Coin(game));
-    }   
+    } 
 
-    static void generateLives(Game* game, int N_LIVES = 0) {
-
-        for (int i = 0; i < N_LIVES; i++)
-            addInRandomPosition(game, new PowerUp(game));
-    }
-
-    static void generateCoins(Game* game, int N_COINS = 0) {
-
-        for (int i = 0; i < N_COINS; i++)
-            addInRandomPosition(game, new Coin(game));
+    static void generateBullet(Game* game)
+    {
+        addInPosition(game, new Bullet(game));
     }
 };
 
