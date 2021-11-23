@@ -20,13 +20,7 @@ public:
     GameObjectContainer(){};
 
     ~GameObjectContainer() 
-    { 
-        /*for (int i = 0; i < gameObjects.size(); i++)
-        {
-            //gameObjects[i]->onDelete();
-            removeObject(getObject(i), i);
-        }*/
-
+    {
         for (auto g : gameObjects) {
             g->onDelete();
             delete g;
@@ -66,7 +60,6 @@ public:
 
     void removeDead()
     {
-        
         for (int i = 0; i < gameObjects.size(); i++)
         {
             if (gameObjects[i]->toDelete()) {

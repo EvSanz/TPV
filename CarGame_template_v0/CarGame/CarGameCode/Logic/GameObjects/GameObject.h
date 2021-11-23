@@ -16,7 +16,6 @@ class GameObject : public Collider {
 protected:
     Texture *texture;
     Game* game;
-    bool good;
     void drawTexture(Texture* texture) {};
     int id;
 public:
@@ -54,8 +53,5 @@ public:
 
     //virtual SDL_Rect getCenter();
     bool collide(SDL_Rect other);
-
-    void setBool(bool bien) { good = bien; }
-    bool isGood() { return good; }
 };
 #endif //CARGAME_GAMEOBJECT_H

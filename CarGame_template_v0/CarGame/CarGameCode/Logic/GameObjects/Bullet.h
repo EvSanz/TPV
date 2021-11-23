@@ -9,20 +9,30 @@ class Game;
 #include "GameObject.h"
 
 class Bullet : public GameObject {
+
+protected: 
+    bool vida;
 private:
     const int HSPEED = 15;
-
 public:
-    Bullet(Game* game) : GameObject(game) {};
+    Bullet(Game* game) : GameObject(game)  
+    {
+        vida = true; 
+    };
 
-    ~Bullet() {};
+    ~Bullet() {
+
+    };
 
     void draw();
     void drawTexture(Texture* texture);
     void update();
-    
-};
 
+    void destroyBullet() { vida = false; }
+
+    bool toDelete() override; 
+};
+ 
 #endif
 
 
