@@ -108,37 +108,13 @@ void Game::draw(){
     con->draw();
     goal->draw();
     drawInfo();
-    //info->drawInfo();
 }
 
 void Game::drawInfo() {
-    /*int x = font->getSize() / 2;
-    int y = font->getSize() / 2;
-
-    SDL_Rect rect = {0, 0, getWindowWidth(),
-                     int(font->getSize() * 1.8)};
-    Box(rect, BLACK).render(renderer);
-
-    double distance = roadLength - car->getX();
-
-    string s = "Pos: X:" + to_string(int(car->getX())) + " Y:"
-        + to_string(int(car->getY())) + " Power:"
-        + to_string(int(car->getPower())) + " Speed:"
-        + to_string(int(car->getSpeed()));
-
-    if (maxObs > -1) {
-        s += " Obstaculos:" + to_string(int(BadObject::instances));
-    }
-
-    if (distance > -1)
-        s += " Distancia res:" + to_string(int(distance));
-
-    s += " Tiempo:" + to_string(int(SDL_GetTicks() - startTime));
-
-    renderText(s, x, y);*/
     infoBar->drawInfo();
     if(help)
         infoBar->drawHelp();
+    infoBar->drawState();
 }
 
 void Game::gameOver()
@@ -165,6 +141,7 @@ void Game::gameOver()
         string u = "Press space to retry";
         renderText(u, x, y + font->getSize() * 2);
     }
+    infoBar->drawState();
 }
 
 void Game::setUserExit() {
@@ -237,6 +214,7 @@ void Game::menu() {
     string u = "Press space to start";
     renderText(u, x, y + font->getSize() * 2);
 
+    infoBar->drawState();
 }
 
 bool Game::isRebased(GameObject* gameObject) {

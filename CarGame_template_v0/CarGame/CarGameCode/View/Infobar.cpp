@@ -42,5 +42,9 @@ void Infobar::drawHelp() {
 }
 
 void Infobar::drawState() {
+    int x = game->font->getSize() / 2;
+    int y = game->getWindowHeight() - game->font->getSize();
 
+    string a = "State " + game->getStringFromEnum(game->state);
+    game->renderText(a, x, y);
 }
