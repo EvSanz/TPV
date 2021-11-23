@@ -219,6 +219,8 @@ void Game::menu() {
     renderText(t, x, y + font->getSize());
     string u = "Press space to start";
     renderText(u, x, y + font->getSize() * 2);
+    string v = "Press [h] to toggle help";
+    renderText(v, x, y + font->getSize() * 3);
 
     infoBar->drawState();
 }
