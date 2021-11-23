@@ -61,7 +61,7 @@ public:
 
     bool finished;
     enum { Menu, Playing, GameOver } state;
-    string getStringFromEnum(int e){
+    string getStringFromEnum(int e){ //esto es para que devuelva el estado en el que esta en el metodo de Infobar
         switch (e) {
         case 0: return "Menu";
         case 1: return "Playing";
