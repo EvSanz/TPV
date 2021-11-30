@@ -20,6 +20,7 @@
 #include "GameObjects/PowerUp.h"
 #include "GameObjects/Coin.h"
 #include "GameObjects/Bullet.h"
+#include "GameObjects/Turbo.h"
 
 #include "GameObjectContainer.h"
 #include "GameObjectGenerator.h"

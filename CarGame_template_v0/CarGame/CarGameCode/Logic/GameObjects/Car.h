@@ -50,6 +50,7 @@ public:
 
     int moreLives() { return power++; }
     int moreCoins() { return coins++; }
+    void moreSpeed() { HSPEED = 20; }
 };
 
 

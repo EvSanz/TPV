@@ -71,6 +71,9 @@
     <ClCompile Include="CarGameCode\Control\Command\Shooter.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
+    <ClCompile Include="CarGameCode\Logic\GameObjects\Turbo.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarGameCode\Logic\Game.h" />
@@ -102,5 +105,6 @@
     <ClInclude Include="CarGameCode\Logic\GameObjects\Coin.h" />
     <ClInclude Include="CarGameCode\Logic\GameObjects\Bullet.h" />
     <ClInclude Include="CarGameCode\Control\Command\Shooter.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjects\Turbo.h" />
   </ItemGroup>
 </Project>
