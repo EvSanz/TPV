@@ -3,7 +3,7 @@
 
 void SuperRock::draw() {
     if (this != nullptr)
-        drawTexture(game->getTexture(rockTexture));
+        drawTexture(game->getTexture(superRockTexture));
 }
 
 void SuperRock::drawTexture(Texture* texture) {
