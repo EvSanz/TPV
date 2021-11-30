@@ -21,6 +21,7 @@
 #include "GameObjects/Coin.h"
 #include "GameObjects/Bullet.h"
 #include "GameObjects/Turbo.h"
+#include "GameObjects/SuperRock.h"
 
 #include "GameObjectContainer.h"
 #include "GameObjectGenerator.h"

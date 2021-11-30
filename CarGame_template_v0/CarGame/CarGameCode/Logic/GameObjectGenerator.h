@@ -16,7 +16,7 @@ protected:
 
 public:
     static void generateRocks(Game *game, int N_ROCKS = 0, int N_LIVES = 0, int N_COINS = 0,
-        int N_TURBO = 0){
+        int N_TURBO = 0, int N_SUPERROCK = 0){
 
         for(int i = 0; i < N_ROCKS; i++)
             addInRandomPosition(game, new Obstacle(game), 50, 50);
@@ -29,6 +29,9 @@ public:
 
         for (int i = 0; i < N_TURBO; i++)
             addInRandomPosition(game, new Turbo(game), 80, 40);
+
+        for (int i = 0; i < N_SUPERROCK; i++)
+            addInRandomPosition(game, new SuperRock(game), 160, 80);
     } 
 
     static void generateBullet(Game* game)
