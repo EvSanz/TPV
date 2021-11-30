@@ -11,9 +11,9 @@ Point2D<int> GameObjectGenerator::generateRandomPosition(Game* game, GameObject*
     return Point2D<int>(x,y);
 }
 
-void GameObjectGenerator::addInRandomPosition(Game* game, GameObject* o)
+void GameObjectGenerator::addInRandomPosition(Game* game, GameObject* o, int x, int y)
 {
-    o->setDimension(50, 50);
+    o->setDimension(x, y);
     generateRandomPosition(game, o);
     if (!game->con->hasCollision(o))
         game->con->add(o);

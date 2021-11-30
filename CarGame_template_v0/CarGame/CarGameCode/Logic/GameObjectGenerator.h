@@ -8,7 +8,7 @@ class GameObjectGenerator {
 
     Point2D<int> static generateRandomPosition(Game* game, GameObject* o);
 
-    void static addInRandomPosition(Game* game, GameObject* o);
+    void static addInRandomPosition(Game* game, GameObject* o, int x, int y);
     void static addInPosition(Game* game, GameObject* o);
 
 protected:
@@ -19,16 +19,16 @@ public:
         int N_TURBO = 0){
 
         for(int i = 0; i < N_ROCKS; i++)
-            addInRandomPosition(game, new Obstacle(game));
+            addInRandomPosition(game, new Obstacle(game), 50, 50);
 
         for (int i = 0; i < N_LIVES; i++)
-            addInRandomPosition(game, new PowerUp(game));
+            addInRandomPosition(game, new PowerUp(game), 40, 40);
 
         for (int i = 0; i < N_COINS; i++)
-            addInRandomPosition(game, new Coin(game));
+            addInRandomPosition(game, new Coin(game), 20, 20);
 
         for (int i = 0; i < N_TURBO; i++)
-            addInRandomPosition(game, new Turbo(game));
+            addInRandomPosition(game, new Turbo(game), 80, 40);
     } 
 
     static void generateBullet(Game* game)
