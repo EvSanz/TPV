@@ -22,6 +22,7 @@
 #include "GameObjects/Bullet.h"
 #include "GameObjects/Turbo.h"
 #include "GameObjects/SuperRock.h"
+#include "GameObjects/oil.h"
 
 #include "GameObjectContainer.h"
 #include "GameObjectGenerator.h"

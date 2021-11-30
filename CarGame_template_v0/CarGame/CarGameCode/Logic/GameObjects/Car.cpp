@@ -91,3 +91,19 @@ void Car::shootBullet()
         coins--; 
     }
 }
+
+void Car::lessSpeed()
+{
+    if (HSPEED > 0)
+    {
+        HSPEED = HSPEED * 0.7; 
+
+        if (HSPEED <= 0)
+            HSPEED = 0; 
+    }
+
+    else
+    {
+        HSPEED = 0; 
+    }
+}
