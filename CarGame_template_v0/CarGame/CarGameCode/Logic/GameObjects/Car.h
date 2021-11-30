@@ -25,7 +25,10 @@ private:
 
     double HSPEED = 1;
     int power = INITIAL_POWER;
-    int coins = INITIAL_COINS; 
+    int coins = INITIAL_COINS;
+
+    bool isSpeed = false;
+    int turboCounter;
 
 public:
     Car(Game* game) : GameObject(game) { /*texture = nullptr;*/ };
@@ -50,7 +53,12 @@ public:
 
     int moreLives() { return power++; }
     int moreCoins() { return coins++; }
-    void moreSpeed() { HSPEED = 20; }
+    void moreSpeed() { 
+        HSPEED = 20;
+        isSpeed = true;
+        turboCounter = 0;
+    }
+
     void lessSpeed();
 };
 

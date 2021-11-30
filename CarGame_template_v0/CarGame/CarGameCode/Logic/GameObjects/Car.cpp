@@ -13,6 +13,14 @@ void Car::update() {
     for (auto c : collisions) {
         c->receiveCarCollision(this);
     }
+    
+    if (isSpeed) {
+        if (turboCounter >= 150) {
+            isSpeed = false;
+            HSPEED = 10;
+        }
+        turboCounter++;
+    }
 }
 
 void Car::draw() {
@@ -52,15 +60,17 @@ void Car::speedControl(bool accelerate) {
 void Car::verticalmove(bool lTurn) {
     if (isAlive())
     {
-        if (lTurn) {
-            setPosition(getX(), getY() - VSPEED);
-            if (getY() < getHeight() / 2)
-                setPosition(getX(), getHeight() / 2);
-        }
-        else {
-            setPosition(getX(), getY() + VSPEED);
-            if (getY() > game->getWindowHeight() - getHeight() / 2)
-                setPosition(getX(), game->getWindowHeight() - getHeight() / 2);
+        if (HSPEED >= 1) {
+            if (lTurn) {
+                setPosition(getX(), getY() - VSPEED);
+                if (getY() < getHeight() / 2)
+                    setPosition(getX(), getHeight() / 2);
+            }
+            else {
+                setPosition(getX(), getY() + VSPEED);
+                if (getY() > game->getWindowHeight() - getHeight() / 2)
+                    setPosition(getX(), game->getWindowHeight() - getHeight() / 2);
+            }
         }
     }
 
