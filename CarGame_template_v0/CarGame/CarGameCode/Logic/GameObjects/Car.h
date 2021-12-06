@@ -53,13 +53,9 @@ public:
 
     int moreLives() { return power++; }
     int moreCoins() { return coins++; }
-    void moreSpeed() { 
-        HSPEED = 20;
-        isSpeed = true;
-        turboCounter = 0;
-    }
 
-    void lessSpeed();
+    void moreSpeed();
+    void lessSpeed(double retardo);
 };
 
 

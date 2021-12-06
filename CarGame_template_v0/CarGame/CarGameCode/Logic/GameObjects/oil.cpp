@@ -16,7 +16,7 @@ void oil::drawTexture(Texture* texture) {
 }
 
 bool oil::receiveCarCollision(Car* car) {
-    car->lessSpeed(); 
+    car->lessSpeed(0.7); 
     return true;
 }
 

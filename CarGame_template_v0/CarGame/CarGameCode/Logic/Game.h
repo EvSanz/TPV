@@ -23,6 +23,7 @@
 #include "GameObjects/Turbo.h"
 #include "GameObjects/SuperRock.h"
 #include "GameObjects/oil.h"
+#include "GameObjects/Truck.h"
 
 #include "GameObjectContainer.h"
 #include "GameObjectGenerator.h"

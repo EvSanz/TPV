@@ -42,6 +42,7 @@ void Car::speedControl(bool accelerate) {
     if (isAlive())
     {
         if (accelerate) {
+
             HSPEED = HSPEED * ACCELERATION;
 
             if (HSPEED > 10) {
@@ -97,23 +98,26 @@ void Car::resetValor()
 void Car::shootBullet()
 {
     if (coins > 0)
-    {
-        coins--; 
-    }
+        coins--;
 }
 
-void Car::lessSpeed()
+void Car::lessSpeed(double retardo)
 {
     if (HSPEED > 0)
     {
-        HSPEED = HSPEED * 0.7; 
+        HSPEED = HSPEED * retardo; 
 
-        if (HSPEED <= 0)
-            HSPEED = 0; 
+        if (HSPEED <= 0.1)
+            HSPEED = 0.1; 
     }
 
     else
-    {
-        HSPEED = 0; 
-    }
+        HSPEED = 0.1;
+}
+
+void Car::moreSpeed() 
+{
+    HSPEED = 20;
+    isSpeed = true;
+    turboCounter = 0;
 }

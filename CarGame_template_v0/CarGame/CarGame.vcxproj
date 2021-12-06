@@ -34,6 +34,7 @@
     <ClCompile Include="CarGameCode\Control\Command\Shooter.cpp" />
     <ClCompile Include="CarGameCode\Logic\GameObjects\Turbo.cpp" />
     <ClCompile Include="CarGameCode\Logic\GameObjects\oil.cpp" />
+    <ClCompile Include="CarGameCode\Logic\GameObjects\Truck.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CarGameCode\Logic\GameObjects\Bullet.h" />
@@ -68,6 +69,7 @@
     <ClInclude Include="CarGameCode\Control\Command\Shooter.h" />
     <ClInclude Include="CarGameCode\Logic\GameObjects\Turbo.h" />
     <ClInclude Include="CarGameCode\Logic\GameObjects\oil.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjects\Truck.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{28A4C5CD-307A-4FE6-81E4-4CE1F1E49AB4}</ProjectGuid>
