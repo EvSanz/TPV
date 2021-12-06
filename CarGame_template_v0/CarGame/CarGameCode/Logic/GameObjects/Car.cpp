@@ -111,12 +111,12 @@ void Car::lessSpeed(double retardo)
     {
         HSPEED = HSPEED * retardo; 
 
-        if (HSPEED <= 0.1)
-            HSPEED = 0.1; 
+        if (HSPEED <= 1)
+            HSPEED = 1; 
     }
 
     else
-        HSPEED = 0.1;
+        HSPEED = 1;
 }
 
 void Car::moreSpeed() 
