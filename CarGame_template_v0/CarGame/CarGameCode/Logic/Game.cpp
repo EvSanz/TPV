@@ -201,6 +201,13 @@ void Game::carShoot() {
     }  
 }
 
+void Game::carWave() {
+    if (car->getCoins() >= 3) {
+        con->wave();
+        car->activateWave();
+    }
+}
+
 void Game::carSpeedo(bool stade) {
     car->speedControl(stade);  
 }

@@ -96,6 +96,15 @@ public:
 
         return collisions; 
     }
+
+    void wave() {
+        for (auto i : gameObjects)
+        {
+            if (i != nullptr)
+                i->wave();
+        }
+    }
+
 };
 
 

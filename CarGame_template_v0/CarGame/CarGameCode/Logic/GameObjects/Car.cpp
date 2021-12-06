@@ -101,6 +101,10 @@ void Car::shootBullet()
         coins--;
 }
 
+void Car::activateWave() {
+    coins = coins - 3;
+}
+
 void Car::lessSpeed(double retardo)
 {
     if (HSPEED > 0)

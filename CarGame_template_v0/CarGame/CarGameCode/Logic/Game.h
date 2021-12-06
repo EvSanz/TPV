@@ -108,6 +108,7 @@ public:
     void carSpeedo(bool stade);
     void carUpDown(bool state);
     void carShoot();
+    void carWave();
 
     void gameOver();
 

@@ -20,3 +20,8 @@ bool BadObject::toDelete() {
 }
 
 int BadObject::instances = 0;
+
+bool BadObject::wave(int value) {
+    setPosition(getX() + value, getY());
+    return true;
+}

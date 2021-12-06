@@ -18,3 +18,8 @@ bool GoodObject::toDelete() {
 }
 
 int GoodObject::instances = 0;
+
+bool GoodObject::wave(int value) {
+    setPosition(getX() - value, getY());
+    return true;
+}

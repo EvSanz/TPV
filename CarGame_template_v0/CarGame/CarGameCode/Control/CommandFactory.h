@@ -10,6 +10,7 @@
 #include "Command/AccCommand.h"
 #include "Command/NextCommand.h"
 #include "Command/Shooter.h"
+#include "Command/WaveCommand.h"
 #include <vector>
 #include <SDL.h>
 #include "Command/Command.h"
