@@ -53,6 +53,7 @@
     <ClInclude Include="CarGameCode\Logic\GameObjects\Collider.h" />
     <ClInclude Include="CarGameCode\Logic\GameObjects\GameObject.h" />
     <ClInclude Include="CarGameCode\Logic\GameObjects\Goal.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjects\objects.h" />
     <ClInclude Include="CarGameCode\Logic\GameObjects\Obstacles.h" />
     <ClInclude Include="CarGameCode\Logic\GameObjects\SuperRock.h" />
     <ClInclude Include="CarGameCode\Utils\Vector2D.h" />

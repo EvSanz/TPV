@@ -14,16 +14,7 @@
 #include "../View/Box.h"
 #include "../View/Font.h"
 
-#include "GameObjects/Car.h"
-#include "GameObjects/Obstacles.h"
-#include "GameObjects/Goal.h"
-#include "GameObjects/PowerUp.h"
-#include "GameObjects/Coin.h"
-#include "GameObjects/Bullet.h"
-#include "GameObjects/Turbo.h"
-#include "GameObjects/SuperRock.h"
-#include "GameObjects/oil.h"
-#include "GameObjects/Truck.h"
+#include "GameObjects/objects.h"
 
 #include "GameObjectContainer.h"
 #include "GameObjectGenerator.h"

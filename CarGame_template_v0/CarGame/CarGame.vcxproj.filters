@@ -122,5 +122,6 @@
     <ClInclude Include="CarGameCode\Logic\GameObjects\oil.h" />
     <ClInclude Include="CarGameCode\Logic\GameObjects\Truck.h" />
     <ClInclude Include="CarGameCode\Control\Command\WaveCommand.h" />
+    <ClInclude Include="CarGameCode\Logic\GameObjects\objects.h" />
   </ItemGroup>
 </Project>
