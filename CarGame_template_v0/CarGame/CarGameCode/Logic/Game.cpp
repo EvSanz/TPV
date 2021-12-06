@@ -46,7 +46,7 @@ void Game::startGame() {
         con = nullptr;
     }
     con = new GameObjectContainer();
-    GameObjectGenerator::generateRocks(this, 5, 10, 10, 0, 0, 5, 6); //revisar esto que nos esta dando memory leaks
+    GameObjectGenerator::generateRocks(this, 5, 10, 10, 5, 3, 5, 6); 
 
     maxObs -= removed;
 
