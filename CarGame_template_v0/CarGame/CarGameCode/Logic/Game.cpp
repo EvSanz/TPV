@@ -193,13 +193,13 @@ Point2D<int> Game::getOrigin() {
     return {int(-(car->getX() - car->getWidth())), 0};
 }
 
-void Game::carShoot() {
+/*void Game::carShoot() {
     if (car->getCoins() > 0)
     {
         GameObjectGenerator::generateBullet(this); 
         car->shootBullet();
     }  
-}
+}*/
 
 void Game::carWave() {
     if (car->getCoins() >= 3) {

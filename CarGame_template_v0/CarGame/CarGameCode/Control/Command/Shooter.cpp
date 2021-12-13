@@ -1,8 +1,12 @@
 #include "Shooter.h"
 
 void Shooter::execute() {
-    if (bUp)
-        game->carShoot();
+    //if (bUp)
+        //game->carShoot();
+    if (game->car->getCoins() > 0) { //Falta lo de coins
+        GameObjectGenerator::generateBullet(game);
+        game->car->shootBullet();
+    }
 }
 
 bool Shooter::parse(SDL_Event& event) {
