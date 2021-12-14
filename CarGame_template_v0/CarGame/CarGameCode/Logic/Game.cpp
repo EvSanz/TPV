@@ -197,14 +197,15 @@ void Game::carShoot() {
     if (car->getCoins() > 0)
     {
         GameObjectGenerator::generateBullet(this); 
-        car->shootBullet();
+        car->spentCoins(1);
     }  
 }
 
 void Game::carWave() {
-    if (car->getCoins() >= 3) {
+    if (car->getCoins() >= 3) 
+    {
         con->wave();
-        car->activateWave();
+        car->spentCoins(3);
     }
 }
 

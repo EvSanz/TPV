@@ -8,23 +8,19 @@ class Game;
 #include "../../View/Texture.h"
 #include "../../View/Box.h"
 #include "GameObject.h"
-#include "BadObject.h"
+#include "Obstacles.h"
 
-class Truck : public BadObject
+class Truck : public Obstacle
 {
 public:
 
-    Truck(Game* game) : BadObject(game) { };
+    Truck(Game* game) : Obstacle(game) { };
 
     ~Truck() {
     };
 
     void draw();
-    void drawTexture(Texture* texture);
     void update();
-
-    bool receiveCarCollision(Car* car) override;
-    bool receiveBulletCollision(Bullet* bullet) override;
 };
 
 

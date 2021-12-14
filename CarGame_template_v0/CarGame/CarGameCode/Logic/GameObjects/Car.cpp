@@ -95,14 +95,10 @@ void Car::resetValor()
     setPosition(getWidth(), game->getWindowHeight() / 2.0); 
 }
 
-void Car::shootBullet()
-{
-    if (coins > 0)
-        coins--;
-}
 
-void Car::activateWave() {
-    coins = coins - 3;
+void Car::spentCoins(int price)
+{
+    coins = coins - price;
 }
 
 void Car::lessSpeed(double retardo)
