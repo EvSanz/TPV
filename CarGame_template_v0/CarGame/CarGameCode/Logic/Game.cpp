@@ -201,13 +201,13 @@ Point2D<int> Game::getOrigin() {
     }  
 }*/
 
-void Game::carWave() {
+/*void Game::carWave() {
     if (car->getCoins() >= 3) 
     {
         con->wave();
         car->spentCoins(3);
     }
-}
+}*/
 
 void Game::carSpeedo(bool stade) {
     car->speedControl(stade);  

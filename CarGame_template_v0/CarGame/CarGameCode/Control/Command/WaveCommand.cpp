@@ -1,8 +1,13 @@
 #include "WaveCommand.h"
 
 void WaveCommand::execute() {
-    if (bUp)
-        game->carWave();
+    if (bUp) {
+        //game->carWave();
+        if (game->car->getCoins() >= 3) {
+            game->con->wave();
+            game->car->spentCoins(3);
+        }
+    }
 }
 
 bool WaveCommand::parse(SDL_Event& event) {

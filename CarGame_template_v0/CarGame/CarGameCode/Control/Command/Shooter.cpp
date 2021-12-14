@@ -3,9 +3,11 @@
 void Shooter::execute() {
     //if (bUp)
         //game->carShoot();
-    if (game->car->getCoins() > 0) { //Falta lo de coins
-        GameObjectGenerator::generateBullet(game);
-        game->car->shootBullet();
+    if (bUp) {
+        if (game->car->getCoins() > 0) { //Falta lo de coins
+            GameObjectGenerator::generateBullet(game);
+            game->car->spentCoins(1);
+        }
     }
 }
 
