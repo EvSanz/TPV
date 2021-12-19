@@ -55,6 +55,7 @@ void Game::startGame() {
     goal = new Goal(this);
     goal->setDimension(GOAL_WIDTH, getWindowHeight());
     goal->setPosition(roadLength, getWindowHeight()/2);
+    goal->setTextureObject(goalTexture); 
     startTime = SDL_GetTicks();
 }
 
@@ -67,7 +68,6 @@ Game::~Game() {
     if(car != nullptr)
         delete car;
     
-    //con->~GameObjectContainer();
     delete con;
     con = nullptr;
 
@@ -193,22 +193,6 @@ Point2D<int> Game::getOrigin() {
     return {int(-(car->getX() - car->getWidth())), 0};
 }
 
-/*void Game::carShoot() {
-    if (car->getCoins() > 0)
-    {
-        GameObjectGenerator::generateBullet(this); 
-        car->spentCoins(1);
-    }  
-}*/
-
-/*void Game::carWave() {
-    if (car->getCoins() >= 3) 
-    {
-        con->wave();
-        car->spentCoins(3);
-    }
-}*/
-
 void Game::carSpeedo(bool stade) {
     car->speedControl(stade);  
 }
@@ -234,8 +218,9 @@ void Game::menu() {
 }
 
 bool Game::isRebased(GameObject* gameObject) {
-    if (gameObject != nullptr &&
-        gameObject->getX() < car->getX() - car->getWidth() / 2)
+    if (gameObject != nullptr && 
+        (gameObject->getX() < car->getX() - car->getWidth() / 2 
+        || gameObject->getX() >= goal->getX() - goal->getWidth()/2))
     {
         return true;
     }

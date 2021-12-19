@@ -17,8 +17,6 @@ public:
 
     ~PowerUp() {};
 
-    void draw();
-    void drawTexture(Texture* texture);
     void update() {};
 
     bool receiveCarCollision(Car* car) override;

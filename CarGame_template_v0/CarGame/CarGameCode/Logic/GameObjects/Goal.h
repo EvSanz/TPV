@@ -22,8 +22,6 @@ public:
         cout << "Goal destructor" << endl;
     };
 
-    void draw();
-    void drawTexture(Texture* texture);
     void update() {};
 };
 

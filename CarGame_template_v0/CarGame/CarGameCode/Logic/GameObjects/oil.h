@@ -19,8 +19,6 @@ public:
     ~oil() {
     };
 
-    void draw();
-    void drawTexture(Texture* texture);
     void update() {};
 
     bool receiveCarCollision(Car* car) override;

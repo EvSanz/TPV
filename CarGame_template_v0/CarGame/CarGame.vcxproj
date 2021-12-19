@@ -20,7 +20,7 @@
     <ClCompile Include="CarGameCode\Logic\GameObjectGenerator.cpp" />
     <ClCompile Include="CarGameCode\Logic\GameObjects\BadObject.cpp" />
     <ClCompile Include="CarGameCode\Logic\GameObjects\Car.cpp" />
-    <ClCompile Include="CarGameCode\Logic\GameObjects\Goal.cpp" />
+    <ClCompile Include="CarGameCode\Logic\GameObjects\GameObject.cpp" />
     <ClCompile Include="CarGameCode\Logic\GameObjects\Obstacles.cpp" />
     <ClCompile Include="CarGameCode\Logic\GameObjects\SuperRock.cpp" />
     <ClCompile Include="CarGameCode\Main.cpp" />

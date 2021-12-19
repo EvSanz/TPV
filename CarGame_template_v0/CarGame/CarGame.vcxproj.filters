@@ -29,9 +29,6 @@
     <ClCompile Include="CarGameCode\Logic\GameObjects\Obstacles.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
-    <ClCompile Include="CarGameCode\Logic\GameObjects\Goal.cpp">
-      <Filter>Archivos de código fuente</Filter>
-    </ClCompile>
     <ClCompile Include="CarGameCode\Control\Command\QuitCommand.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
@@ -84,6 +81,9 @@
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
     <ClCompile Include="CarGameCode\Control\Command\WaveCommand.cpp">
+      <Filter>Archivos de código fuente</Filter>
+    </ClCompile>
+    <ClCompile Include="CarGameCode\Logic\GameObjects\GameObject.cpp">
       <Filter>Archivos de código fuente</Filter>
     </ClCompile>
   </ItemGroup>

@@ -98,8 +98,6 @@ public:
     //void carUse(string instruction);
     void carSpeedo(bool stade);
     void carUpDown(bool state);
-    void carShoot();
-    void carWave();
 
     void gameOver();
 

@@ -24,8 +24,6 @@ public:
 
     };
 
-    void draw();
-    void drawTexture(Texture* texture);
     void update();
 
     void destroyBullet() { vida = false; }

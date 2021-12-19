@@ -16,14 +16,18 @@ class GameObject : public Collider {
 protected:
     Texture *texture;
     Game* game;
-    void drawTexture(Texture* texture) {};
+
+    void drawTexture(Texture* texture);
+
     int id;
+    TextureName textureName; 
+
 public:
     GameObject(Game *game): game(game){};
     virtual ~GameObject(){};
 
-    virtual void draw()=0;
-    //virtual void drawDebug();
+    virtual void draw(); 
+
     virtual void update()=0;
 
     virtual bool toDelete(){return false;}
@@ -37,6 +41,11 @@ public:
         w = width;
         h = height;
     };
+
+    void setTextureObject(TextureName name)
+    {
+        textureName = name;
+    }
 
     int getWidth() {return w;};
     int getHeight() {return h;};

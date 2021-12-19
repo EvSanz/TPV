@@ -11,9 +11,10 @@ Point2D<int> GameObjectGenerator::generateRandomPosition(Game* game, GameObject*
     return Point2D<int>(x,y);
 }
 
-void GameObjectGenerator::addInRandomPosition(Game* game, GameObject* o, int x, int y)
+void GameObjectGenerator::addInRandomPosition(Game* game, GameObject* o, int x, int y, TextureName name)
 {
     o->setDimension(x, y);
+    o->setTextureObject(name); 
     generateRandomPosition(game, o);
     if (!game->con->hasCollision(o))
         game->con->add(o);
@@ -23,13 +24,14 @@ void GameObjectGenerator::addInRandomPosition(Game* game, GameObject* o, int x, 
     }
 }
 
-void GameObjectGenerator::addInPosition(Game* game, GameObject* o)
+void GameObjectGenerator::addInPosition(Game* game, GameObject* o, int w, int h, TextureName name)
 {
     int x = game->car->getX() + game->car->getWidth() / 2;
     int y = game->car->getY(); 
 
     o->setPosition(x, y); 
-    o->setDimension(20, 5); 
+    o->setDimension(w, h);
+    o->setTextureObject(name);
 
     game->con->add(o); 
 }
