@@ -14,13 +14,11 @@ class SuperRock :  public BadObject {
 public:
 
     SuperRock(Game* game) : BadObject(game) {
-        //id = instances;
-        //cout << "Rock constructor: " << id << endl;
+        textureName = superRockTexture;
+        setDimension(160, 80);
     };
 
-    ~SuperRock() {
-        //cout << "Rock destructor: " << id << endl;
-    };
+    ~SuperRock() {};
 
     void update() {};
 

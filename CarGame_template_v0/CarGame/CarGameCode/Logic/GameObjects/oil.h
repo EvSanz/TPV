@@ -14,10 +14,12 @@ class oil : public BadObject
 {
 public:
 
-    oil(Game* game) : BadObject(game) { };
-
-    ~oil() {
+    oil(Game* game) : BadObject(game) { 
+        textureName = oilTexture;
+        setDimension(40, 40);
     };
+
+    ~oil() {};
 
     void update() {};
 

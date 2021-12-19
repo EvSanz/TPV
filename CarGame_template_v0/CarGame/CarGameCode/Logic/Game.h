@@ -33,8 +33,6 @@ private:
     bool doExit;
 
     int width, height;
-    int maxObs = 20;
-    int removed = 0;
     int roadLength;
     Goal* goal = nullptr;
     int startTime = 0;
@@ -106,8 +104,6 @@ public:
     void appendHelpInfo(string info_string) { helpInfo.push_back(info_string); };
 
     bool isRebased(GameObject* gameObject);
-
-    void increaseRemoved() { removed++; }
 
     void changeState(); 
     

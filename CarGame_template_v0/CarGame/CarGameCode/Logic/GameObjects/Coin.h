@@ -11,7 +11,10 @@
 class Coin : public GoodObject {
 
 public:
-    Coin(Game* game) : GoodObject(game) {};
+    Coin(Game* game) : GoodObject(game) {
+        textureName = coinTexture;
+        setDimension(20, 20);
+    };
 
     ~Coin() {};
 

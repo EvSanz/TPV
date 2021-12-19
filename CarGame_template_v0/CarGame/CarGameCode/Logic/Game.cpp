@@ -37,18 +37,15 @@ void Game::startGame() {
         delete car;
     car = new Car(this);
     car->setDimension(CAR_WIDTH, CAR_HEIGHT);
-    car->setPosition(car->getWidth(), height / 2.0); 
+    car->setPosition(car->getWidth(), height / 2.0);
+    car->setTextureObject(carTexture);
 
-    maxObs = 20;
-    removed = 0;
     if (con != nullptr) {
         delete con;
         con = nullptr;
     }
     con = new GameObjectContainer();
     GameObjectGenerator::generateRocks(this, 5, 10, 10, 5, 3, 5, 6); 
-
-    maxObs -= removed;
 
     if (goal != nullptr)
         delete goal;
@@ -105,10 +102,10 @@ void Game::update(){
 
 
 void Game::draw(){
-
-    car->draw(); 
+    //se dibuja el coche el ultimo para que cuando este pase por encima de los objetos se dibuje el coche encima de ellos 
     con->draw();
     goal->draw();
+    car->draw();
     drawInfo();
 }
 

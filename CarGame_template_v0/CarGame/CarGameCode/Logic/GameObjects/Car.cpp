@@ -23,21 +23,6 @@ void Car::update() {
     }
 }
 
-void Car::draw() {
-    drawTexture(game->getTexture(carTexture));
-}
-
-
-void Car::drawTexture(Texture *texture) {
-    int dX = game->getOrigin().getX();
-    int dY = game->getOrigin().getY();
-
-    SDL_Rect c = getCollider();
-    SDL_Rect textureBox = { c.x + dX, c.y + dY, c.w, c.h};
-    texture->render(textureBox);
-}
-
-
 void Car::speedControl(bool accelerate) {
     if (isAlive())
     {

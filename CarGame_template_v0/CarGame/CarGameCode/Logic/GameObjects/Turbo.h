@@ -11,7 +11,10 @@
 class Turbo : public GoodObject 
 {
 public:
-    Turbo(Game* game) : GoodObject(game) {};
+    Turbo(Game* game) : GoodObject(game) {
+        textureName = turboTexture;
+        setDimension(80, 40);
+    };
 
     ~Turbo() {};
 

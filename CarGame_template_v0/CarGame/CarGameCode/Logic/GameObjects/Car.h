@@ -34,9 +34,7 @@ public:
     Car(Game* game) : GameObject(game) { /*texture = nullptr;*/ };
     ~Car() {};
 
-    void draw();
     void update();
-    void drawTexture(Texture* texture);
     
     int getPower() { return power; };
     int getSpeed() { return HSPEED; };

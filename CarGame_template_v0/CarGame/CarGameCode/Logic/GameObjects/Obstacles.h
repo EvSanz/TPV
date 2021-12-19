@@ -17,13 +17,11 @@ class Obstacle: public BadObject {
 public:
     
     Obstacle(Game* game) : BadObject(game) {
-        //id = instances;
-        //cout << "Rock constructor: " << id << endl;
+        textureName = rockTexture;
+        setDimension(50, 50);
     };
 
-    ~Obstacle() {
-        //cout << "Rock destructor: " << id << endl;
-    };
+    ~Obstacle() {};
 
     void update() {}; 
 

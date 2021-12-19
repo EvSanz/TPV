@@ -18,11 +18,11 @@ public:
     Bullet(Game* game) : GameObject(game)  
     {
         vida = true; 
+        textureName = bulletTexture;
+        setDimension(20, 5);
     };
 
-    ~Bullet() {
-
-    };
+    ~Bullet() {};
 
     void update();
 

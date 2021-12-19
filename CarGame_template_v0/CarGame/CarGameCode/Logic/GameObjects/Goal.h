@@ -15,12 +15,8 @@ class Game;
 class Goal: public GameObject {
 
 public:
-    Goal(Game* game) : GameObject(game) {
-        cout << "Goal constructor: " << endl;
-    };
-    ~Goal() {
-        cout << "Goal destructor" << endl;
-    };
+    Goal(Game* game) : GameObject(game) {};
+    ~Goal() {};
 
     void update() {};
 };

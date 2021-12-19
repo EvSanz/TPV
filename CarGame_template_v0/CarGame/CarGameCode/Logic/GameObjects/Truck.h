@@ -14,12 +14,13 @@ class Truck : public Obstacle
 {
 public:
 
-    Truck(Game* game) : Obstacle(game) { };
-
-    ~Truck() {
+    Truck(Game* game) : Obstacle(game) { 
+        textureName = truckTexture;
+        setDimension(120, 60);
     };
 
-    void draw();
+    ~Truck() {};
+
     void update();
 };
 

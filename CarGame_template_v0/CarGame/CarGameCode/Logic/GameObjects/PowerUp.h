@@ -13,7 +13,10 @@ class Game;
 class PowerUp : public GoodObject {
 
 public:
-    PowerUp(Game* game) : GoodObject(game){};
+    PowerUp(Game* game) : GoodObject(game){
+        textureName = powerUpTexture;
+        setDimension(40, 40);
+    };
 
     ~PowerUp() {};
 

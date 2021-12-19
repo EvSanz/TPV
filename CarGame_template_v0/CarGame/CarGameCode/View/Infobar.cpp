@@ -16,8 +16,7 @@ void Infobar::drawInfo() {
         + to_string(int(game->car->getPower())) + " Speed:"
         + to_string(int(game->car->getSpeed()));
 
-    if (game->maxObs > -1) {
-        //s += " Obstaculos:" + to_string(int(maxObs));
+    if (BadObject::instances > -1) {
         s += " Obstaculos:" + to_string(int(BadObject::instances));
     }
 
