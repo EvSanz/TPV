@@ -24,7 +24,6 @@ public:
     void update() {};
 
     bool receiveCarCollision(Car* car) override;
-    bool receiveBulletCollision(Bullet* bullet) override { return true; }
 };
 
 

@@ -236,12 +236,7 @@ void Game::menu() {
 }
 
 bool Game::isRebased(GameObject* gameObject) {
-    if (gameObject != nullptr && 
-        (gameObject->getX() < car->getX() - car->getWidth() / 2 
-        || gameObject->getX() >= goal->getX() - goal->getWidth()/2))
-    {
-        return true;
-    }
-    else
-        return false;
+    return gameObject != nullptr &&
+        (gameObject->getX() < car->getX() - car->getWidth() / 2
+            || gameObject->getX() >= goal->getX() - goal->getWidth() / 2);
 }

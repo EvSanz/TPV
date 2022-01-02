@@ -1,8 +1,6 @@
 #include "Shooter.h"
 
 void Shooter::execute() {
-    //if (bUp)
-        //game->carShoot();
     if (bUp) {
         if (game->spendMoney(1)) { 
             GameObjectGenerator::generateBullet(game);
