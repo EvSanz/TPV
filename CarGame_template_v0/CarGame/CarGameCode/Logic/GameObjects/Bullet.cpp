@@ -8,7 +8,9 @@ void Bullet::update() {
     vector<Collider*> collisions = game->con->getCollisions(this);
 
     for (auto c: collisions) {
-        c->receiveBulletCollision(this); 
+        //si un objeto recibe colision de bala y devuelve true se borra la bala
+        if(c->receiveBulletCollision(this)) 
+            vida = false;
     }
 }
 

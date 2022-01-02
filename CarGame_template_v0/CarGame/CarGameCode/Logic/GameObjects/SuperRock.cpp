@@ -9,6 +9,5 @@ bool SuperRock::receiveCarCollision(Car* car) {
 }
 
 bool SuperRock::receiveBulletCollision(Bullet* bullet) {
-    bullet->destroyBullet();
     return true;
 }

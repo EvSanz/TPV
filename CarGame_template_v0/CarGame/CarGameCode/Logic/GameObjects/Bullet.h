@@ -26,8 +26,6 @@ public:
 
     void update();
 
-    void destroyBullet() { vida = false; }
-
     bool toDelete() override; 
 };
  
