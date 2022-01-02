@@ -120,25 +120,29 @@ void Game::gameOver()
 {
     int x = getWindowWidth() / 3;
     int y = getWindowHeight() / 3;
-    
+    int inc = font->getSize();
+
     if (car->isAlive())
     {
-        string s = "Congratulations!";
-        renderText(s, x, y);
-        string t = "User wins";
-        renderText(t, x, y + font->getSize());
-        string u = "Time: " + to_string(endTime) + " ms";
-        renderText(u, x, y + font->getSize() * 2);
-        string v = "Press space to play again";
-        renderText(v, x, y + font->getSize() * 3);
+        string s[] = { "Congratulations!",
+            "User wins",
+            "Time: " + to_string(endTime) + " ms",
+            "Press space to play again"
+        };
+        for (auto a : s) {
+            renderText(a, x, y);
+            y += inc;
+        }
     }
     else {
-        string s = "GAME OVER";
-        renderText(s, x, y);
-        string t = "User loses";
-        renderText(t, x, y + font->getSize());
-        string u = "Press space to retry";
-        renderText(u, x, y + font->getSize() * 2);
+        string s[] = { "GAME OVER",
+            "User loses",
+            "Press space to retry"
+        };
+        for (auto a : s) {
+            renderText(a, x, y);
+            y += inc;
+        }
     }
     infoBar->drawState();
 }
@@ -201,16 +205,16 @@ void Game::carUpDown(bool state) {
 void Game::menu() {
     int x = getWindowWidth() / 3;
     int y = getWindowHeight() / 3;
-
-    string s = "Welcome to Super Cars";
-    renderText(s, x, y);
-    string t = "Level: 0";
-    renderText(t, x, y + font->getSize());
-    string u = "Press space to start";
-    renderText(u, x, y + font->getSize() * 2);
-    string v = "Press [h] to toggle help";
-    renderText(v, x, y + font->getSize() * 3);
-
+    int inc = font->getSize();
+    string s[] = { "Welcome to Super Cars",
+        "Level: 0",
+        "Press space to start",
+        "Press [h] to toggle help"
+    };
+    for (auto a : s) {
+        renderText(a, x, y);
+        y += inc;
+    }
     infoBar->drawState();
 }
 
