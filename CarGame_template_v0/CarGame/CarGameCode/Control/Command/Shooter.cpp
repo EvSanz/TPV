@@ -4,9 +4,8 @@ void Shooter::execute() {
     //if (bUp)
         //game->carShoot();
     if (bUp) {
-        if (game->car->getCoins() > 0) { //Falta lo de coins
+        if (game->spendMoney(1)) { 
             GameObjectGenerator::generateBullet(game);
-            game->car->spentCoins(1);
         }
     }
 }

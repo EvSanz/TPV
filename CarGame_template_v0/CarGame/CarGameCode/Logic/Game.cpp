@@ -100,9 +100,15 @@ void Game::update(){
     }
 }
 
+vector<GameObject*> Game::getCollisions()
+{
+    return con->getVector(); 
+}
 
 void Game::draw(){
-    //se dibuja el coche el ultimo para que cuando este pase por encima de los objetos se dibuje el coche encima de ellos 
+    //se dibuja el coche el ultimo para que cuando 
+    //este pase por encima de los objetos se dibuje 
+    //el coche encima de ellos 
     con->draw();
     goal->draw();
     car->draw();
@@ -145,6 +151,17 @@ void Game::gameOver()
 
 void Game::setUserExit() {
     doExit = true;
+}
+
+bool Game::spendMoney(int cost)
+{
+    if (car->getCoins() >= cost) {
+        car->spentCoins(cost);
+        return true;
+    }
+
+    else
+        return false; 
 }
 
 bool Game::isUserExit() {

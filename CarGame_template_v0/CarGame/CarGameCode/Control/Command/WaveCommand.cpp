@@ -1,11 +1,11 @@
 #include "WaveCommand.h"
 
 void WaveCommand::execute() {
-    if (bUp) {
-        //game->carWave();
-        if (game->car->getCoins() >= 3) {
-            game->con->wave();
-            game->car->spentCoins(3);
+    if (bUp && game->spendMoney(3)) {
+        
+        for (Collider* i : game->getCollisions())
+        {
+            i->wave();  
         }
     }
 }

@@ -97,14 +97,20 @@ public:
         return collisions; 
     }
 
-    void wave() {
+    vector<GameObject*> getVector()
+    {
+        vector<GameObject*> objetos;
+
         for (auto i : gameObjects)
         {
             if (i != nullptr)
-                i->wave();
+            {
+                objetos.push_back(i);
+            }
         }
-    }
 
+        return objetos; 
+    }
 };
 
 

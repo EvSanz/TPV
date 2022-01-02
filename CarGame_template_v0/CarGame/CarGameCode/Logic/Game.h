@@ -45,7 +45,12 @@ private:
     Infobar* infoBar;
     vector<string> helpInfo;
     bool help = false;
+
 public:
+
+    GameObjectContainer* con = nullptr;
+    Car* car = nullptr;
+
     friend class Infobar;
     const unsigned int CAR_WIDTH = 100;
     const unsigned  int CAR_HEIGHT = 50;
@@ -65,9 +70,6 @@ public:
 
     Game(string name, int width, int height, int roadLength);
     ~Game();
-
-    GameObjectContainer *con = nullptr;
-    Car* car = nullptr;
 
     void startGame();
     void update();
@@ -93,9 +95,11 @@ public:
 
     void drawInfo();
 
-    //void carUse(string instruction);
+    bool spendMoney(int cost);
     void carSpeedo(bool stade);
     void carUpDown(bool state);
+
+    vector<GameObject*> getCollisions();
 
     void gameOver();
 
