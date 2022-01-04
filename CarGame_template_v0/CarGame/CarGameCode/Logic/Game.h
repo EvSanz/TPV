@@ -37,6 +37,7 @@ private:
     Goal* goal = nullptr;
     int startTime = 0;
     int endTime = 0; 
+    int time = 0; 
 
     TextureContainer *textureContainer;
     SDL_Renderer* renderer = nullptr;
@@ -92,8 +93,15 @@ public:
     Texture *getTexture(TextureName name);
     SDL_Renderer *getRenderer();
     void renderText(string text, int x, int y, SDL_Color color={0,0,0});
+    void renderVectorText(vector<string> text, int x, int y, SDL_Color color = {0,0,0});
 
     void drawInfo();
+    void drawHelp();
+    void drawStateName(); 
+    void setState(enum state);
+
+    void setElapsedTime(int totalTime) { time = totalTime; }
+    bool gameFinished() { return finished; }
 
     bool spendMoney(int cost);
     void carSpeedo(bool stade);

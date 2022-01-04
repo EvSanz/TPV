@@ -117,9 +117,24 @@ void Game::draw(){
 
 void Game::drawInfo() {
     infoBar->drawInfo();
-    if(help)
-        infoBar->drawHelp();
+    if (help)
+        drawHelp(); 
+    drawStateName(); 
+}
+
+void Game::drawHelp()
+{
+    infoBar->drawHelp(); 
+}
+
+void Game::drawStateName()
+{
     infoBar->drawState();
+}
+
+void Game::setState(enum state)
+{
+
 }
 
 void Game::gameOver()
@@ -199,6 +214,17 @@ void Game::renderText(string text, int x, int y, SDL_Color color){
     font->render(renderer, text.c_str(), x, y, color);
 }
 
+void Game::renderVectorText(vector<string> text, int x, int y, SDL_Color color = {0,0,0 })
+{
+    int inc = font->getSize() * 1.5;
+
+    for (auto s : text) {
+        renderText(s, x, y, color);
+        y += inc;
+    }
+}
+
+
 bool Game::doQuit() {
     return isUserExit();
 }
@@ -220,14 +246,17 @@ void Game::carUpDown(bool state) {
 }
 
 void Game::menu() {
+
     int x = getWindowWidth() / 3;
     int y = getWindowHeight() / 3;
     int inc = font->getSize();
+
     string s[] = { "Welcome to Super Cars",
         "Level: 0",
         "Press space to start",
         "Press [h] to toggle help"
     };
+
     for (auto a : s) {
         renderText(a, x, y);
         y += inc;
