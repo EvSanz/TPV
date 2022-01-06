@@ -130,25 +130,21 @@ void Game::gameOver()
 
     if (car->isAlive())
     {
-        string s[] = { "Congratulations!",
+        vector<string> texts = {
             "User wins",
             "Time: " + to_string(endTime) + " ms",
             "Press space to play again"
         };
-        for (auto a : s) {
-            renderText(a, x, y);
-            y += inc;
-        }
+
+        renderVectorText(texts, getWindowWidth() / 2 - 100, getWindowHeight() / 2 - 50);
     }
     else {
-        string s[] = { "GAME OVER",
+        vector<string> texts = {
             "User loses",
             "Press space to retry"
         };
-        for (auto a : s) {
-            renderText(a, x, y);
-            y += inc;
-        }
+
+        renderVectorText(texts, getWindowWidth() / 2 - 100, getWindowHeight() / 2 - 50);
     }
     infoBar->drawState();
 }
@@ -199,6 +195,16 @@ void Game::renderText(string text, int x, int y, SDL_Color color){
     font->render(renderer, text.c_str(), x, y, color);
 }
 
+void Game::renderVectorText(vector<string> text, int x, int y, SDL_Color color)
+{
+    int inc = font->getSize() * 1.5;
+
+    for (auto s : text) {
+        renderText(s, x, y, color);
+        y += inc;
+    }
+}
+
 bool Game::doQuit() {
     return isUserExit();
 }
@@ -220,18 +226,13 @@ void Game::carUpDown(bool state) {
 }
 
 void Game::menu() {
-    int x = getWindowWidth() / 3;
-    int y = getWindowHeight() / 3;
-    int inc = font->getSize();
-    string s[] = { "Welcome to Super Cars",
-        "Level: 0",
-        "Press space to start",
-        "Press [h] to toggle help"
+    vector<string> texts = {
+    "Welcome to Super Cars",
+    "Press space to start",
+    "Press [h] for help"
     };
-    for (auto a : s) {
-        renderText(a, x, y);
-        y += inc;
-    }
+
+    renderVectorText(texts, getWindowWidth() / 2 - 100, getWindowHeight() / 2 - 50);
     infoBar->drawState();
 }
 

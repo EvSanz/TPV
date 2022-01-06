@@ -92,6 +92,7 @@ public:
     Texture *getTexture(TextureName name);
     SDL_Renderer *getRenderer();
     void renderText(string text, int x, int y, SDL_Color color={0,0,0});
+    void renderVectorText(vector<string> text, int x, int y, SDL_Color color = { 0,0,0 });
 
     void drawInfo();
 
