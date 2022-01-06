@@ -25,9 +25,7 @@ void Infobar::drawInfo() {
 
     s += " Coins:" + to_string(int(game->car->getCoins()));
 
-    //s += " Tiempo:" + to_string(int(SDL_GetTicks() - game->startTime));
-
-    s += " Tiempo:" + to_string(int(game->time)); 
+    s += " Tiempo:" + to_string(int(SDL_GetTicks() - game->startTime));
 
     game->renderText(s, x, y);
 }
