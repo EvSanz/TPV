@@ -24,7 +24,6 @@ int main(int argc, char* argv[]){
         cout << e;
     }
 
-    //exampleLeak(); // You can remove this line
 	return 0;
 }
 

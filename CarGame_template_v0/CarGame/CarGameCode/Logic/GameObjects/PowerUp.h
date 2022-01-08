@@ -2,18 +2,23 @@
 #ifndef CARGAME_POWERUP_H
 #define CARGAME_POWERUP_H
 
-class Game;
-
+//Include
 #include "../../Utils/Vector2D.h"
 #include "../../View/Texture.h"
 #include "../../View/Box.h"
 #include "GameObject.h"
 #include "GoodObject.h"
 
+//Clase
+class Game;
+
 class PowerUp : public GoodObject {
 
 public:
+
     PowerUp(Game* game) : GoodObject(game){
+
+        //Establecemos la textura del powerUp y su tamaño
         textureName = powerUpTexture;
         setDimension(40, 40);
     };

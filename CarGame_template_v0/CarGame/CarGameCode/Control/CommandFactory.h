@@ -3,9 +3,9 @@
 #ifndef CARGAME_COMMANDFACTORY_H
 #define CARGAME_COMMANDFACTORY_H
 
+//Includes 
 #include "Command/QuitCommand.h"
 #include "Command/MoveCommand.h"
-//#include "CarGameCode/Control/Commands/DebugCommand.h"
 #include "Command/HelpCommand.h"
 #include "Command/AccCommand.h"
 #include "Command/NextCommand.h"
@@ -19,12 +19,14 @@
 
 class CommandFactory {
 
+    //Vector de comandos disponibles 
     vector<Command*> availableCommands;
+    
     Game* game;
+
 public:
     CommandFactory(Game* g) {
         game = g;
-        //game->clearHelp();
     }
 
     ~CommandFactory() {
@@ -32,6 +34,7 @@ public:
             delete c;
     }
 
+    //Metodo para devolver un comando del vector de comandos
     Command* getCommand(SDL_Event& event) {
         for (auto c : availableCommands) {
             if (c->parse(event)) return c;
@@ -39,6 +42,8 @@ public:
         return nullptr;
     }
 
+    //Metodo para añadir comandos, metiendolos 
+    //en el vector de comandos disponibles 
     void add(Command* c) {
         c->bind(game);
         availableCommands.push_back(c);

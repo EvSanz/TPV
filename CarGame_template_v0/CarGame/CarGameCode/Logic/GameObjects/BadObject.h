@@ -1,19 +1,29 @@
 #ifndef CARGAME_BADOBJECT_H
 #define CARGAME_BADOBJECT_H
 
+//Includes
 #include "GameObject.h"
 
+//Clases extras
 class Game;
 
 class BadObject : public GameObject {
+
 protected:
+
+    //Booleano de estado actual 
     bool alive;
+
 public:
+
+    //Contador de BadObjects
     static int instances;
+
     BadObject(Game *game): GameObject(game) {
         alive = true;
     };
     ~BadObject() override = default;
+
     void update() override{};
     bool toDelete() override;
 

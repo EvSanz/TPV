@@ -1,65 +1,76 @@
-//
-// Created by eys on 20/8/21.
-//
-
 #ifndef CARGAME_GAME_H
 #define CARGAME_GAME_H
 
+//Includes
 #include <iostream>
 #include <string>
 #include <vector>
-
 #include "../View/TextureContainer.h"
 #include "../View/Texture.h"
 #include "../View/Box.h"
 #include "../View/Font.h"
-
 #include "GameObjects/objects.h"
-
 #include "GameObjectContainer.h"
 #include "GameObjectGenerator.h"
-
 #include "GameObjects/BadObject.h"
 #include "GameObjects/GoodObject.h"
 #include "../View/Infobar.h"
 
 using namespace std;
 
-class Game{
+class Game {
 
 private:
 
+    //Nombre del juego 
     string name;
+    //Indica si el jugador ha salido del juego o no 
     bool doExit;
-
+    //Ancho, altura
     int width, height;
+    //Longitud del juego 
     int roadLength;
-    Goal* goal = nullptr;
+    //Tiempos para el cronometro
     int startTime = 0;
     int endTime = 0; 
 
-    TextureContainer *textureContainer;
-    SDL_Renderer* renderer = nullptr;
+    //Fuente de texto
     Font *font;
-
+    //Barra de informacion
     Infobar* infoBar;
+    //Contenedor de texturas
+    TextureContainer* textureContainer;
+    //Meta
+    Goal* goal = nullptr;
+    SDL_Renderer* renderer = nullptr;
+
+    //Vector de informacion 
     vector<string> helpInfo;
+    //Indica si se ve el texto de ayuda o no 
     bool help = false;
 
 public:
 
+    //Contenedor de objetos vacio
     GameObjectContainer* con = nullptr;
+    //Coche
     Car* car = nullptr;
 
     friend class Infobar;
+
+    //Ancho fijo del coche y meta, ademas del alto del coche
     const unsigned int CAR_WIDTH = 100;
     const unsigned  int CAR_HEIGHT = 50;
     const unsigned  int GOAL_WIDTH = 50;
 
-
+    //Indica si se ha terminado el juego 
     bool finished;
+
+    //Estados del juego 
     enum { Menu, Playing, GameOver } state;
-    string getStringFromEnum(int e){ //esto es para que devuelva el estado en el que esta en el metodo de Infobar
+
+    //Devuelve el estado en el que esta el juego 
+    string getStringFromEnum(int e){ 
         switch (e) {
         case 0: return "Menu";
         case 1: return "Playing";
@@ -76,11 +87,12 @@ public:
     void draw();
 
     void setUserExit();
-    bool isUserExit();
     bool doQuit();
 
     int getWindowWidth();
     int getWindowHeight();
+
+    //Metodo para devolver el tamaño de la carretera
     int getRoadLeght() { return roadLength; }
 
     Point2D<int> getOrigin();
@@ -112,6 +124,7 @@ public:
 
     void changeState(); 
     
+    //Metodo para activar o desactivar el panel de ayuda
     void toggleHelp() { help = !help; }
 };
 

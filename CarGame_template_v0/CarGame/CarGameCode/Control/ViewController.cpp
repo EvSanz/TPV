@@ -1,7 +1,4 @@
-﻿//
-// Created by eys on 20/8/21.
-//
-
+﻿//Includes
 #include "ViewController.h"
 
 
@@ -11,18 +8,22 @@ ViewController::ViewController(Game *_game) {
     initSDL();
 
     game->setRenderer(renderer);
+
+    //Cargamos las texturas del juego 
     game->loadTextures();
 
+    //Añadimos un commandFactory
     commandFactory = new CommandFactory(game); 
+
+    //Añadimos los diferentes comandos del juego al 
+    //vector que hay en el commandFactory 
     commandFactory -> add(new MoveCommand());
     commandFactory -> add(new AccCommand());
     commandFactory->add(new Shooter());
-    //commandFactory -> add(new DebugCommand());
     commandFactory -> add(new HelpCommand());
     commandFactory -> add(new QuitCommand());
     commandFactory->add(new NextCommand());
     commandFactory->add(new WaveCommand());
-    //game -> startGame();
 }
 
 void ViewController::run() {
@@ -75,44 +76,7 @@ void ViewController::clearBackground() {
 }
 
 void ViewController::handleEvents() {
-    //SDL_Event event;
-    //while (SDL_PollEvent(&event) ){
-    //    if( event.type == SDL_QUIT)
-    //        game->setUserExit();
-    //    if (event.type == SDL_KEYDOWN) {
-    //        //SDL_Keycode key = event.key.keysym.sym;
-    //        switch (event.key.keysym.sym) {
-    //        case SDLK_LEFT:
-    //            if(startGame)
-    //                game->carUse("decl");
-    //            break;
-    //        case SDLK_RIGHT:
-    //            if(startGame)
-    //                game->carUse("accl");
-    //            break;
-    //        case SDLK_UP:
-    //            if(startGame)
-    //                game->carUse("TurnL");
-    //            break;
-    //        case SDLK_DOWN:
-    //            if(startGame)
-    //                game->carUse("TurnR");
-    //            break;
-    //        case SDLK_ESCAPE:
-    //            game->setUserExit();
-    //            break;
-    //        case SDLK_SPACE:
-    //            if (!startGame) {
-    //                startGame = true;
-    //                state = Playing;
-    //                game->startGame();
-    //            }
-    //            break;
-    //        default:
-    //            break;
-    //        }
-    //    }
-
+   
     SDL_Event event;
     while (SDL_PollEvent(&event)) {
         Command* command = commandFactory-> getCommand(event);

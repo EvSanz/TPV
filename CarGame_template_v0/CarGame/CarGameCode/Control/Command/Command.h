@@ -2,17 +2,17 @@
 #ifndef CARGAME_COMMAND_H
 #define CARGAME_COMMAND_H
 
+//Includes 
 #include <SDL.h>
 #include "../../Logic/Game.h"
 
-// TODO add includes
-
 class Command {
+
 protected:
     string info_string;
     Game* game;
-public:
 
+public:
     Command() {};
     virtual ~Command() = default;
     virtual bool parse(SDL_Event& event) = 0;

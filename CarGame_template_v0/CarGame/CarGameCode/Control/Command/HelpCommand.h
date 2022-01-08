@@ -1,12 +1,14 @@
 #pragma once
 
+//Includes
 #include "Command.h"
 
 class HelpCommand: public Command
 {
-    bool bUp = false;
+
 public:
 
+    //Informacion que aparecera en el panel de ayuda
     const string INFO_STRING = "[h] to toggle help";
 
     HelpCommand() {
@@ -14,6 +16,6 @@ public:
     };
     ~HelpCommand() = default;
     bool parse(SDL_Event & event) override;
-    void execute() override;
+    void execute() override {};
 };
 

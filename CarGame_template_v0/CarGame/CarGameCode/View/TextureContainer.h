@@ -13,6 +13,7 @@ using namespace std;
 
 const string IMAGES_PATH = "../Images/";
 
+//Texturas de los objetos 
 enum TextureName {carTexture,
         rockTexture,
         goalTexture,
@@ -31,7 +32,7 @@ typedef struct {
     int numRows; int numCols;
 } TextureAttributes;
 
-
+//Imagenes 
 const TextureAttributes TEXTURE_ATTRIBUTES[NUM_TEXTURES] =
         {{"car.png",1,1},
          {"rock.png",1,1},

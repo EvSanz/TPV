@@ -2,6 +2,7 @@
 #ifndef CARGAME_OBJECTS_H
 #define CARGAME_OBJECTS_H
 
+//Includes de los GameObjects
 #include "GameObject.h"
 #include "Car.h"
 #include "Obstacles.h"

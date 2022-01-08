@@ -1,20 +1,24 @@
 #ifndef CARGAME_GAMEOBJECTGENERATOR_H
 #define CARGAME_GAMEOBJECTGENERATOR_H
 
+//Includes
 #include "Game.h"
 #include "GameObjects/GameObject.h"
 
 class GameObjectGenerator {
 
     Point2D<int> static generateRandomPosition(Game* game, GameObject* o);
-
     void static addInRandomPosition(Game* game, GameObject* o);
     void static addInPosition(Game* game, GameObject* o);
 
 protected:
+
     Game* game = nullptr;
 
 public:
+
+    //Metodo para generar los objetos del escenario, haciendo varios recorridos 
+    //para cada elemento para crearlos 
     static void generateRocks(Game *game, int N_ROCKS = 0, int N_LIVES = 0, int N_COINS = 0,
         int N_TURBO = 0, int N_SUPERROCK = 0, int N_OIL = 0, int  N_TRUCK = 0){
 
@@ -40,6 +44,7 @@ public:
             addInRandomPosition(game, new Truck(game));
     } 
 
+    //Metodo para generar balas en posicion fija
     static void generateBullet(Game* game)
     {
         addInPosition(game, new Bullet(game));

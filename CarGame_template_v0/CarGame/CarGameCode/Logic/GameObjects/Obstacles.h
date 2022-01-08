@@ -1,22 +1,24 @@
 #pragma once
-
 #ifndef CARGAME_OBSTACLES_H
 #define CARGAME_OBSTACLES_H
 
-
-class Game;
-
+//Includes
 #include "../../Utils/Vector2D.h"
 #include "../../View/Texture.h"
 #include "../../View/Box.h"
 #include "GameObject.h"
 #include "BadObject.h"
 
+//Clases
+class Game;
+
 class Obstacle: public BadObject {
 
 public:
     
     Obstacle(Game* game) : BadObject(game) {
+
+        //Establecemos la textura del obstaculo y su tamaño
         textureName = rockTexture;
         setDimension(50, 50);
     };

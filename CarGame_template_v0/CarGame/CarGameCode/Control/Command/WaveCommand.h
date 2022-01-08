@@ -4,9 +4,12 @@
 
 class WaveCommand : public Command
 {
+    //Booleano de wave (W) 
     bool bUp = false;
 
 public:
+
+    //Informacion que aparecera en el panel de ayuda
     const string INFO_STRING = "[W] to activate the wave";
 
     WaveCommand() {
